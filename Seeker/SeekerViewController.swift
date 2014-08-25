@@ -46,9 +46,14 @@ class SeekerViewController: UIViewController , UICollectionViewDataSource, UICol
         refreshControl.endRefreshing()
     }
     
-    func loadInfo(ofCity city:String) ->(RACSignal){
+    func rac_loadInfo(ofCity city:String) ->(RACSignal){
         return wManager.seekWeather(forCityList: [city])
     }
+    
+    func future_loadInfo(ofCity city:String) ->(Future<NSDictionary>){
+        return wManager.seekWeatherPromise(forCityList: [city])
+    }
+
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
         return cityList.count
@@ -66,8 +71,9 @@ class SeekerViewController: UIViewController , UICollectionViewDataSource, UICol
         if cityInfo.needRefresh{
             
             println("\(++counter)")
-            loadInfo(ofCity: cityList[indexPath.item].cityName)
+            rac_loadInfo(ofCity: cityList[indexPath.item].cityName)
             .subscribeNext { (o:AnyObject!) -> Void in
+//            future_loadInfo(ofCity: cityList[indexPath.item].cityName).onSuccess{(o: NSDictionary) -> () in
                 cityInfo.needRefresh = false
                 var d = o as NSDictionary!
                 

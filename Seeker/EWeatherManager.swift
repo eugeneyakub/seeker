@@ -72,7 +72,7 @@ class EWeatherManager: NSObject {
     
     //------------------------
     
-    func seekWeatherPromise() -> Future<NSDictionary> {
+    func seekWeatherPromise(forCityList cityList:[String]) -> Future<NSDictionary> {
         let promise = Promise<NSDictionary>()
         
         Queue.global.async {
@@ -80,7 +80,7 @@ class EWeatherManager: NSObject {
             // do a complicated task
             let manager = AFHTTPRequestOperationManager()
             let urlString = "http://api.openweathermap.org/data/2.5/weather"
-            let cityList = ["Harare", "Moscow", "Kiev", "Paris"]
+            
             let k = Int(arc4random_uniform(UInt32(cityList.count)))
             var params = ["q":cityList[k], "APPID":wManager.apiKey]
             
@@ -104,7 +104,7 @@ class EWeatherManager: NSObject {
     
     func promise_seek(){
         var  k = 1
-        self.seekWeatherPromise().andThen{ (r: TaskResult<NSDictionary>) -> () in
+        self.seekWeatherPromise(forCityList: ["Moscow"]).andThen{ (r: TaskResult<NSDictionary>) -> () in
             switch r{
             case .Success(let val):
                 println(val.value)
