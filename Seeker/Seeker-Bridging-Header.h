@@ -4,3 +4,4 @@
 
 #import <ReactiveCocoa.h>
 #import <AFNetworking.h>
+#import <TMAPIClient.h>

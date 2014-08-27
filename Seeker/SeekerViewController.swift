@@ -17,6 +17,8 @@ class SeekerViewController: UIViewController , UICollectionViewDataSource, UICol
     let wManager = EWeatherManager()
     var cityList: [EYCityWeather] = []
     var refreshControl = UIRefreshControl()
+    
+    var textSignal:RACSignal!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,15 +29,32 @@ class SeekerViewController: UIViewController , UICollectionViewDataSource, UICol
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.addSubview(refreshControl)
         
-        textField_seek.rac_textSignal().subscribeNext { (o:AnyObject!) -> Void in
-            let s = o as String
-            println(s)
-        }
+//        textField_seek.rac_textSignal().subscribeNext { (o:AnyObject!) -> Void in
+//            let s = o as String
+//            println(s)
+//        }
         cityList = ["Moscow", "Vladivostok", "Khabarovsk", "Yakutsk", "Magadan", "Chelyabinsk", "Ivanovo"].map{ (o:String) -> EYCityWeather in
                 return EYCityWeather(byName: o)
         }
-
-
+        textSignal = textField_seek.rac_signalForControlEvents(UIControlEvents.EditingChanged | UIControlEvents.EditingDidBegin).map { (o) -> AnyObject! in
+            let tf = o as? UITextField
+            if tf != nil{
+                return tf!.text
+            }
+            return ""
+        }
+        
+        textSignal = textSignal.combineLatestWith(buttonSeek.rac_signalForControlEvents(UIControlEvents.TouchUpInside).map({ (o) -> AnyObject! in
+            let b = o as UIButton
+            return "clicked"
+        }))
+        self.rac_liftSelector("someLiftedSelector:", withSignalsFromArray: [textSignal])
+ 
+    }
+    
+    
+    func someLiftedSelector(s:RACTuple){
+        println("\(s.first)  \(s.second)")
     }
     
     func refresh(sender:AnyObject){

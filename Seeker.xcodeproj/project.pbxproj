@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */; };
 		44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */; };
 		44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6C19AB240000A59A7E /* seekerCell.swift */; };
 		44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A3719A7251E001E7EAA /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 		44CE3A6319A76288001E7EAA /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5E19A76288001E7EAA /* Promise.swift */; };
 		44CE3A6419A76288001E7EAA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5F19A76288001E7EAA /* Queue.swift */; };
 		44CE3A6519A76288001E7EAA /* FutureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A6019A76288001E7EAA /* FutureUtils.swift */; };
+		44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */; };
 		83633991CCFB495BBF546BE3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACAD61EEF9644D98DC2B1DC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,7 @@
 /* Begin PBXFileReference section */
 		015644BED5EA4412A903BBC4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		1ACAD61EEF9644D98DC2B1DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekRacViewController.swift; sourceTree = "<group>"; };
 		44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYCityWeather.swift; sourceTree = "<group>"; };
 		44A39C6C19AB240000A59A7E /* seekerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seekerCell.swift; sourceTree = "<group>"; };
 		44CE3A3219A7251E001E7EAA /* Seeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +57,7 @@
 		44CE3A5E19A76288001E7EAA /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		44CE3A5F19A76288001E7EAA /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		44CE3A6019A76288001E7EAA /* FutureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureUtils.swift; sourceTree = "<group>"; };
+		44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekInTumblrViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,14 +120,13 @@
 		44CE3A3419A7251E001E7EAA /* Seeker */ = {
 			isa = PBXGroup;
 			children = (
+				44D28B7319ADB55A005F1946 /* old */,
 				44CE3A3719A7251E001E7EAA /* AppDelegate.swift */,
 				44CE3A3B19A7251E001E7EAA /* Main.storyboard */,
 				44CE3A3E19A7251E001E7EAA /* Images.xcassets */,
 				44CE3A3519A7251E001E7EAA /* Supporting Files */,
 				44CE3A5419A72677001E7EAA /* Seeker-Bridging-Header.h */,
-				44CE3A5719A72705001E7EAA /* SeekerViewController.swift */,
-				44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */,
-				44A39C6C19AB240000A59A7E /* seekerCell.swift */,
+				44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */,
 			);
 			path = Seeker;
 			sourceTree = "<group>";
@@ -163,6 +166,17 @@
 				44CE3A6019A76288001E7EAA /* FutureUtils.swift */,
 			);
 			name = Futures;
+			sourceTree = "<group>";
+		};
+		44D28B7319ADB55A005F1946 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				44CE3A5719A72705001E7EAA /* SeekerViewController.swift */,
+				44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */,
+				44A39C6C19AB240000A59A7E /* seekerCell.swift */,
+				44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */,
+			);
+			name = old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,8 +319,10 @@
 				44CE3A6419A76288001E7EAA /* Queue.swift in Sources */,
 				44CE3A5819A72705001E7EAA /* SeekerViewController.swift in Sources */,
 				44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */,
+				44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */,
 				44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */,
 				44CE3A6219A76288001E7EAA /* Future.swift in Sources */,
+				44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */,
 				44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */,
 				44CE3A6319A76288001E7EAA /* Promise.swift in Sources */,
 			);
