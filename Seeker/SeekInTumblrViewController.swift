@@ -32,15 +32,24 @@ class SeekInTumblrViewController: UIViewController {
     
     
     @IBAction func followers(sender: UIButton) {
-        signal_blogInfo("fitness-bodybuilding.tumblr.com").then{ () ->RACSignal! in
-                return self.signal_posts("fitness-bodybuilding.tumblr.com")
-            }.subscribeNext({ (o) -> Void in
-                println(o)
-            }, error: { (e) -> Void in
-                println("followers: " + e.description)
-            }) { () -> Void in
-                println("followers completed")
-        }
+        //signal_makeTextPost("some text here").subscribeNext({ (o) -> Void in
+        signal_makePhotoPost("http://cs620425.vk.me/v620425229/11f03/PIBkjjsEvcA.jpg").subscribeNext({ (o) -> Void in
+    println(o)
+    }, error: { (e) -> Void in
+    println("followers: " + e.description)
+    }) { () -> Void in
+    println("followers completed")
+    }
+
+//        signal_blogInfo("fitness-bodybuilding.tumblr.com").then{ () ->RACSignal! in
+//                return self.signal_posts("fitness-bodybuilding.tumblr.com")
+//            }.subscribeNext({ (o) -> Void in
+//                println(o)
+//            }, error: { (e) -> Void in
+//                println("followers: " + e.description)
+//            }) { () -> Void in
+//                println("followers completed")
+//        }
     }
     
     
@@ -75,18 +84,33 @@ class SeekInTumblrViewController: UIViewController {
         return signal
     }
     
-    
-    func post_photo()->RACSignal{
-         let signal = RACSignal.createSignal { (s) -> RACDisposable! in
-//        TMAPIClient *client = [TMAPIClient sharedInstance];
-//        NSDictionary *parameters = @{@"source": @"http://upload.wikimedia.org/wikipedia/en/d/d5/Snowcrash.jpg"};
-//        [client post:blog type:@"photo" parameters:parameters
-//        callback:^(id response, NSError *error) {
-//            if (error) {
-//                NSLog(@"Error posting to Tumblr");
-//            } else {
-//            }
-//        }];
+    func signal_makePhotoPost(sourceLink:String)->RACSignal{
+        let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+            TMAPIClient.sharedInstance().post("ovladetel.tumblr.com", type: "photo", parameters: ["source" : sourceLink]) {(o:AnyObject!, e:NSError!) ->() in
+                if e{
+                    s.sendError(e)
+                    return
+                }
+                s.sendNext(o)
+                s.sendCompleted()
+            }
+            
+            return nil
+        }
+        return signal
+    }
+
+    func signal_makeTextPost(someText:String)->RACSignal{
+        let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+            TMAPIClient.sharedInstance().post("ovladetel.tumblr.com", type: "text", parameters: ["body" : someText]) {(o:AnyObject!, e:NSError!) ->() in
+                if e{
+                    s.sendError(e)
+                    return
+                }
+                s.sendNext(o)
+                s.sendCompleted()
+            }
+            
             return nil
         }
         return signal
