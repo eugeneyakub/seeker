@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         TMAPIClient.sharedInstance().OAuthConsumerKey = "rkwctaq9VEXaqs97wNwn7f7lQHIeOkKMyDteQLFI6QFszf1Avm"
         TMAPIClient.sharedInstance().OAuthConsumerSecret = "1OxrhjcGwJqHrdqo6PmE0Wg7FxAN8ClO73yIeBMuzsXvQfovo3"
+       // TMAPIClient.sharedInstance().OAuthToken = "OBkZXA3xG56T5DXvmo5sn92tY2EHTl0H2XI19BmdP98X83cMfY"
+       // TMAPIClient.sharedInstance().OAuthTokenSecret = "RCCYKwDxPloWWJtksG0FVZ0fqLsWOCq6bXmsKlvsboprIyfnNf"
         
         return true
     }
