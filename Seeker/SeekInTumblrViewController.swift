@@ -13,14 +13,18 @@ class SeekInTumblrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signal_authenticate().then { () -> RACSignal! in
+        signal_authenticate().doError { (e) -> Void in
+            println("authenticate FAILED: " + e.description)
+        }.doCompleted { () -> Void in
+            println("authenticate completed")
+        }.then { () -> RACSignal! in
             return self.signal_getInfo()
         }.subscribeNext({ (o) -> Void in
             println(o)
         }, error: { (e) -> Void in
-            println(e)
+            println("getInfo FAILED: " + e.description)
         }) { () -> Void in
-            println("completed")
+            println("getInfo completed")
         }
     }
     
@@ -29,11 +33,9 @@ class SeekInTumblrViewController: UIViewController {
         let signal = RACSignal.createSignal { (s) -> RACDisposable! in
             TMAPIClient.sharedInstance().authenticate("com.appgranula.Seeker", callback: { (e:NSError!) -> Void in
                 if e{
-                    println(e.description)
                     s.sendError(e)
                     return
                 }
-                println("login completed")
                 s.sendCompleted()
             })
             return nil
@@ -55,6 +57,14 @@ class SeekInTumblrViewController: UIViewController {
             return nil
         }
         
+        return signal
+    }
+    
+    func signal_followers()->RACSignal{
+        let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+            
+            return nil
+        }
         return signal
     }
 }
