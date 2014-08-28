@@ -42,11 +42,44 @@
                                     <action selector="followers:" destination="pev-MY-2qW" eventType="touchUpInside" id="mTp-cn-Y8I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-wj-uwZ">
+                                <rect key="frame" x="246" y="142" width="109" height="34"/>
+                                <state key="normal" title="Blogs I follow">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tap_blogsIFollow:" destination="pev-MY-2qW" eventType="touchUpInside" id="qc7-hh-CwA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-nk-5gF">
+                                <rect key="frame" x="257" y="179" width="87" height="34"/>
+                                <state key="normal" title="Make Post">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tap_makePost:" destination="pev-MY-2qW" eventType="touchUpInside" id="fgC-QH-aQm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-ca-kZi">
+                                <rect key="frame" x="244" y="221" width="112" height="34"/>
+                                <state key="normal" title="Posts Of Blog">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tap_getPostsOfBlog:" destination="pev-MY-2qW" eventType="touchUpInside" id="dXE-V7-7JM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="PBd-wj-uwZ" firstAttribute="top" secondItem="1Ej-cz-iDz" secondAttribute="bottom" constant="20" id="0fn-Vh-XsG"/>
                             <constraint firstAttribute="centerX" secondItem="1Ej-cz-iDz" secondAttribute="centerX" id="FLO-aO-MyJ"/>
+                            <constraint firstAttribute="centerX" secondItem="fT9-nk-5gF" secondAttribute="centerX" id="FTC-c1-JxK"/>
+                            <constraint firstAttribute="centerX" secondItem="hgT-ca-kZi" secondAttribute="centerX" id="N7m-XH-MlS"/>
+                            <constraint firstItem="fT9-nk-5gF" firstAttribute="top" secondItem="PBd-wj-uwZ" secondAttribute="bottom" constant="3" id="XAT-Lg-Z09"/>
                             <constraint firstItem="1Ej-cz-iDz" firstAttribute="top" secondItem="BhK-cZ-09N" secondAttribute="bottom" constant="28" id="fZX-Zw-izv"/>
+                            <constraint firstAttribute="centerX" secondItem="PBd-wj-uwZ" secondAttribute="centerX" id="pFm-nh-KqK"/>
+                            <constraint firstItem="hgT-ca-kZi" firstAttribute="top" secondItem="fT9-nk-5gF" secondAttribute="bottom" constant="8" id="y9v-gm-qMO"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -56,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSr-u9-wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="-568"/>
+            <point key="canvasLocation" x="530" y="-574"/>
         </scene>
         <!--Seeker View Controller-->
         <scene sceneID="ufC-wZ-h7g">
