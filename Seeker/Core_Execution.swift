@@ -8,9 +8,9 @@
 
 import Foundation
 
-func execution_getPosts(byType type:String) -> RACSignal{
+func execution_getPosts(byType type:String, atPage page:Int) -> RACSignal{
     if type == "LikedPosts"{
-        return signal_likedPosts()
+        return signal_likedPosts(page)
     }
     return RACSignal.empty()
 }

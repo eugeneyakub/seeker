@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="adj-v8-6oD">
-                                <rect key="frame" x="140" y="0.0" width="320" height="600"/>
+                                <rect key="frame" x="140" y="64" width="320" height="492"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="ha0-ld-vpI"/>
@@ -164,9 +164,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.34901960780000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="adj-v8-6oD" firstAttribute="top" secondItem="xIJ-Ef-U3S" secondAttribute="bottom" constant="-64" id="5s4-tG-3w0"/>
+                            <constraint firstItem="adj-v8-6oD" firstAttribute="top" secondItem="xIJ-Ef-U3S" secondAttribute="bottom" id="5s4-tG-3w0"/>
                             <constraint firstAttribute="centerX" secondItem="adj-v8-6oD" secondAttribute="centerX" id="7KX-wi-tzn"/>
-                            <constraint firstItem="fkk-pm-Fvu" firstAttribute="top" secondItem="adj-v8-6oD" secondAttribute="bottom" constant="-44" id="eTs-IA-2q3"/>
+                            <constraint firstItem="fkk-pm-Fvu" firstAttribute="top" secondItem="adj-v8-6oD" secondAttribute="bottom" id="eTs-IA-2q3"/>
                         </constraints>
                     </view>
                     <connections>

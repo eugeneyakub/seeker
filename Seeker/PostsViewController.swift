@@ -12,6 +12,7 @@ import UIKit
 class PostsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var type = "LikedPosts"
     var posts:[TumblrPost] = []
+    var page = 0
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -24,36 +25,37 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.addSubview(refreshControl)
         
-        refresh(self)
+        refresh(true)
 
     }
     
-
-    
-    func refresh(sender:AnyObject){
-        posts = []
-        execution_getPosts(byType: type).subscribeNext({ (o) -> Void in
-            let json = JSONValue(o)
-            if let liked_posts = json["liked_posts"].array{
-                println(liked_posts)
-                for post in liked_posts{
-                    let width           = post["photos"][0]["original_size"]["width"].integer
-                    let height          = post["photos"][0]["original_size"]["height"].integer
-                    let url             = post["photos"][0]["original_size"]["url"].string
-                    let type            = post["type"].string!
-                    let blog_name       = post["blog_name"].string!
-                    var photo:Photo?
-                    if width != nil && height != nil && url != nil{
-                        photo = Photo(width: width!, height: height!, url: url!)
+    func getPosts(){
+        execution_getPosts(byType: type, atPage: page).subscribeNext({[weak self]  (o) -> Void in
+            if let actualSelf = self{
+                let json = JSONValue(o)
+                if let liked_posts = json["liked_posts"].array{
+                    println(liked_posts)
+                    for post in liked_posts{
+                        let width           = post["photos"][0]["original_size"]["width"].integer
+                        let height          = post["photos"][0]["original_size"]["height"].integer
+                        let url             = post["photos"][0]["original_size"]["url"].string
+                        let type            = post["type"].string!
+                        let blog_name       = post["blog_name"].string!
+                        var photo:Photo?
+                        if width != nil && height != nil && url != nil{
+                            photo = Photo(width: width!, height: height!, url: url!)
+                        }
+                        
+                        let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photo: photo, type:type, blog_name: blog_name )
+                        actualSelf.posts.append(tp)
+                        
                     }
                     
-                    let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photo: photo, type:type, blog_name: blog_name )
-                    self.posts.append(tp)
+                    println(actualSelf)
+                    actualSelf.collectionView.reloadData()
+                    actualSelf.refreshControl.endRefreshing() //FIXME: cause bad access on back button click
                     
                 }
-                
-                self.collectionView.reloadData()
-                self.refreshControl.endRefreshing()
             }
             }, error: { (e) -> Void in
                 println("getPosts FAILED: " + e.description)
@@ -63,6 +65,18 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
     }
     
+    
+    func refresh(sender:AnyObject){
+        posts = []
+        page  = 0
+        getPosts()
+    }
+    
+    func loadMore(){
+        ++page
+        getPosts()
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
         return 1
     }
@@ -70,6 +84,21 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         return posts.count
     }
     
+//    override func viewWillDisappear(animated: Bool) {
+//        self.refreshControl.removeTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//    }
+    //func scrollViewDidScroll(scrollView: UIScrollView!) {
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView!) {
+
+        let scrollViewHeight    = collectionView.frame.size.height
+        let scrollContentHeight = collectionView.contentSize.height
+        let scrollOffset        = collectionView.contentOffset.y
+        //println("\(scrollOffset) + \(scrollViewHeight) == \(scrollContentHeight)")
+        //if scrollOffset + scrollViewHeight == scrollContentHeight {
+        if scrollOffset + scrollViewHeight >= scrollContentHeight {
+            loadMore()
+        }
+    }
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("postCell", forIndexPath: indexPath) as PostCollectionViewCell
@@ -78,6 +107,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         if post.photo != nil{
             cell.postPhoto.setImageWithURL(NSURL(string:post.photo!.url), placeholderImage: UIImage(named: "photo_placeholder"))
         }
+        println(posts.count)
         return cell
     }
     

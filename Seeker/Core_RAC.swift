@@ -41,9 +41,9 @@ func signal_getInfo()->RACSignal{
 }
 
 
-func signal_likedPosts()->RACSignal{
+func signal_likedPosts(page:Int)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
-        TMAPIClient.sharedInstance().likes(nil) {(o:AnyObject!, e:NSError!) ->() in
+        TMAPIClient.sharedInstance().likes(["limit":20, "offset":(page*20)]) {(o:AnyObject!, e:NSError!) ->() in
             if e{
                 s.sendError(e)
                 return
