@@ -15,10 +15,23 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBOutlet var collectionView: UICollectionView!
     
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl.tintColor = UIColor.grayColor()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        collectionView.addSubview(refreshControl)
+        
+        refresh(self)
+
+    }
+    
+
+    
+    func refresh(sender:AnyObject){
+        posts = []
         execution_getPosts(byType: type).subscribeNext({ (o) -> Void in
             let json = JSONValue(o)
             if let liked_posts = json["liked_posts"].array{
@@ -40,6 +53,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
                 
                 self.collectionView.reloadData()
+                self.refreshControl.endRefreshing()
             }
             }, error: { (e) -> Void in
                 println("getPosts FAILED: " + e.description)
