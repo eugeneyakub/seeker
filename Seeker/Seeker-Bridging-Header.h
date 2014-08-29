@@ -4,4 +4,5 @@
 
 #import <ReactiveCocoa.h>
 #import <AFNetworking.h>
+#import <UIImageView+AFNetworking.h>
 #import <TMAPIClient.h>

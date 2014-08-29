@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440F136219B053FC00ABAE03 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136119B053FC00ABAE03 /* SwiftyJSON.swift */; };
+		440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136519B0585300ABAE03 /* PostsViewController.swift */; };
+		440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136719B05A2F00ABAE03 /* Core_Execution.swift */; };
+		4498843319B0608E00C288DE /* TumblrPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498843219B0608E00C288DE /* TumblrPost.swift */; };
+		4498843519B0684000C288DE /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498843419B0684000C288DE /* PostCollectionViewCell.swift */; };
 		44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */; };
 		44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */; };
 		44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6C19AB240000A59A7E /* seekerCell.swift */; };
@@ -39,6 +44,11 @@
 /* Begin PBXFileReference section */
 		015644BED5EA4412A903BBC4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		1ACAD61EEF9644D98DC2B1DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		440F136119B053FC00ABAE03 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		440F136519B0585300ABAE03 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		440F136719B05A2F00ABAE03 /* Core_Execution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_Execution.swift; sourceTree = "<group>"; };
+		4498843219B0608E00C288DE /* TumblrPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblrPost.swift; sourceTree = "<group>"; };
+		4498843419B0684000C288DE /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekRacViewController.swift; sourceTree = "<group>"; };
 		44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYCityWeather.swift; sourceTree = "<group>"; };
 		44A39C6C19AB240000A59A7E /* seekerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seekerCell.swift; sourceTree = "<group>"; };
@@ -89,10 +99,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		440F136019B053E600ABAE03 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				440F136119B053FC00ABAE03 /* SwiftyJSON.swift */,
+				44A39C6919AB20BD00A59A7E /* Model */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		44A39C6919AB20BD00A59A7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */,
+				4498843219B0608E00C288DE /* TumblrPost.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -100,7 +120,7 @@
 		44CE3A2919A7251E001E7EAA = {
 			isa = PBXGroup;
 			children = (
-				44A39C6919AB20BD00A59A7E /* Model */,
+				440F136019B053E600ABAE03 /* Support */,
 				44CE3A5B19A76270001E7EAA /* Futures */,
 				44CE3A3419A7251E001E7EAA /* Seeker */,
 				44CE3A4719A7251E001E7EAA /* SeekerTests */,
@@ -130,6 +150,9 @@
 				44CE3A5419A72677001E7EAA /* Seeker-Bridging-Header.h */,
 				44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */,
 				44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */,
+				440F136719B05A2F00ABAE03 /* Core_Execution.swift */,
+				440F136519B0585300ABAE03 /* PostsViewController.swift */,
+				4498843419B0684000C288DE /* PostCollectionViewCell.swift */,
 			);
 			path = Seeker;
 			sourceTree = "<group>";
@@ -321,10 +344,15 @@
 				44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */,
 				44BC08DF19AF1FC7007B2FE1 /* Core_RAC.swift in Sources */,
 				44CE3A6419A76288001E7EAA /* Queue.swift in Sources */,
+				440F136219B053FC00ABAE03 /* SwiftyJSON.swift in Sources */,
 				44CE3A5819A72705001E7EAA /* SeekerViewController.swift in Sources */,
 				44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */,
+				4498843519B0684000C288DE /* PostCollectionViewCell.swift in Sources */,
+				4498843319B0608E00C288DE /* TumblrPost.swift in Sources */,
 				44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */,
+				440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */,
 				44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */,
+				440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */,
 				44CE3A6219A76288001E7EAA /* Future.swift in Sources */,
 				44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */,
 				44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */,

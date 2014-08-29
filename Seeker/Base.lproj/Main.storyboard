@@ -69,14 +69,28 @@
                                     <action selector="tap_getPostsOfBlog:" destination="pev-MY-2qW" eventType="touchUpInside" id="dXE-V7-7JM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yk3-kG-GZX">
+                                <rect key="frame" x="240" y="263" width="121" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="580-bw-unA"/>
+                                </constraints>
+                                <state key="normal" title="Likes">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="DVl-Jn-5u9" kind="show" identifier="segue_LikedPosts" id="6QD-4Q-YGO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PBd-wj-uwZ" firstAttribute="top" secondItem="1Ej-cz-iDz" secondAttribute="bottom" constant="20" id="0fn-Vh-XsG"/>
                             <constraint firstAttribute="centerX" secondItem="1Ej-cz-iDz" secondAttribute="centerX" id="FLO-aO-MyJ"/>
                             <constraint firstAttribute="centerX" secondItem="fT9-nk-5gF" secondAttribute="centerX" id="FTC-c1-JxK"/>
+                            <constraint firstItem="Yk3-kG-GZX" firstAttribute="top" secondItem="hgT-ca-kZi" secondAttribute="bottom" constant="8" id="IsJ-Ul-yLe"/>
                             <constraint firstAttribute="centerX" secondItem="hgT-ca-kZi" secondAttribute="centerX" id="N7m-XH-MlS"/>
                             <constraint firstItem="fT9-nk-5gF" firstAttribute="top" secondItem="PBd-wj-uwZ" secondAttribute="bottom" constant="3" id="XAT-Lg-Z09"/>
+                            <constraint firstAttribute="centerX" secondItem="Yk3-kG-GZX" secondAttribute="centerX" id="aX9-0n-veA"/>
                             <constraint firstItem="1Ej-cz-iDz" firstAttribute="top" secondItem="BhK-cZ-09N" secondAttribute="bottom" constant="28" id="fZX-Zw-izv"/>
                             <constraint firstAttribute="centerX" secondItem="PBd-wj-uwZ" secondAttribute="centerX" id="pFm-nh-KqK"/>
                             <constraint firstItem="hgT-ca-kZi" firstAttribute="top" secondItem="fT9-nk-5gF" secondAttribute="bottom" constant="8" id="y9v-gm-qMO"/>
@@ -89,7 +103,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSr-u9-wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="-574"/>
+            <point key="canvasLocation" x="670" y="-574"/>
+        </scene>
+        <!--Posts View Controller-->
+        <scene sceneID="WY8-x4-agG">
+            <objects>
+                <viewController id="DVl-Jn-5u9" customClass="PostsViewController" customModule="Seeker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xIJ-Ef-U3S"/>
+                        <viewControllerLayoutGuide type="bottom" id="fkk-pm-Fvu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mXL-Ye-aDO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="adj-v8-6oD">
+                                <rect key="frame" x="140" y="0.0" width="320" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="ha0-ld-vpI"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZdW-Hw-VN9">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postCell" id="TTz-U0-fQ9" customClass="PostCollectionViewCell" customModule="Seeker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BlogName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPT-25-9RT">
+                                                    <rect key="frame" x="8" y="14" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-m8-NUJ">
+                                                    <rect key="frame" x="0.0" y="43" width="320" height="157"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="320" height="200"/>
+                                        <connections>
+                                            <outlet property="blogName" destination="EPT-25-9RT" id="4UD-wx-g3J"/>
+                                            <outlet property="postPhoto" destination="xW4-m8-NUJ" id="TQU-a6-id4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="DVl-Jn-5u9" id="hDJ-kk-SAY"/>
+                                    <outlet property="delegate" destination="DVl-Jn-5u9" id="cK3-CC-oh2"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.34901960780000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="adj-v8-6oD" firstAttribute="top" secondItem="xIJ-Ef-U3S" secondAttribute="bottom" constant="-64" id="5s4-tG-3w0"/>
+                            <constraint firstAttribute="centerX" secondItem="adj-v8-6oD" secondAttribute="centerX" id="7KX-wi-tzn"/>
+                            <constraint firstItem="fkk-pm-Fvu" firstAttribute="top" secondItem="adj-v8-6oD" secondAttribute="bottom" constant="-44" id="eTs-IA-2q3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="adj-v8-6oD" id="1pg-hu-sSo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4MP-jP-uWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1304" y="-452"/>
         </scene>
         <!--Seeker View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -203,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="136"/>
+            <point key="canvasLocation" x="726" y="866"/>
         </scene>
         <!--Seek Rac View Controller-->
         <scene sceneID="7Yd-Dd-TQ5">
@@ -238,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9o-Yh-nXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1472" y="136"/>
+            <point key="canvasLocation" x="1492" y="754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B6D-5j-auQ">
@@ -256,7 +342,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhU-44-TjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="136"/>
+            <point key="canvasLocation" x="-282" y="702"/>
         </scene>
     </scenes>
 </document>

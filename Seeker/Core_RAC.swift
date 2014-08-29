@@ -40,6 +40,25 @@ func signal_getInfo()->RACSignal{
     return signal
 }
 
+
+func signal_likedPosts()->RACSignal{
+    let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+        TMAPIClient.sharedInstance().likes(nil) {(o:AnyObject!, e:NSError!) ->() in
+            if e{
+                s.sendError(e)
+                return
+            }
+            s.sendNext(o)
+            s.sendCompleted()
+        }
+        
+        return nil
+    }
+    return signal
+}
+
+
+
 func signal_makePhotoPost(sourceLink:String)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
         TMAPIClient.sharedInstance().post("ovladetel.tumblr.com", type: "photo", parameters: ["source" : sourceLink]) {(o:AnyObject!, e:NSError!) ->() in

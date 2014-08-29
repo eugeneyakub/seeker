@@ -13,31 +13,49 @@ class SeekInTumblrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signal_authenticate().doError { (e) -> Void in
-            println("authenticate FAILED: " + e.description)
-        }.doCompleted { () -> Void in
-            println("authenticate completed")
-        }.then { () -> RACSignal! in
-            return signal_getInfo()
-        }.subscribeNext({ (o) -> Void in
-            println(o)
-        }, error: { (e) -> Void in
-            println("getInfo FAILED: " + e.description)
-        }) { () -> Void in
-            println("getInfo completed")
+        let (OAuthToken, OAuthTokenSecret) = (NSUserDefaults.standardUserDefaults().objectForKey("OAuthToken") as String!,  NSUserDefaults.standardUserDefaults().objectForKey("OAuthTokenSecret") as String!)
+        if OAuthToken != nil && OAuthTokenSecret != nil{
+            TMAPIClient.sharedInstance().OAuthToken = OAuthToken
+            TMAPIClient.sharedInstance().OAuthTokenSecret = OAuthTokenSecret
+        } else {
+            
+            signal_authenticate().doError { (e) -> Void in
+                println("authenticate FAILED: " + e.description)
+                }.doCompleted { () -> Void in
+                    println("authenticate completed")
+                    NSUserDefaults.standardUserDefaults().setObject(TMAPIClient.sharedInstance().OAuthToken, forKey: "OAuthToken")
+                    NSUserDefaults.standardUserDefaults().setObject(TMAPIClient.sharedInstance().OAuthTokenSecret, forKey: "OAuthTokenSecret")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }.subscribeNext({ (o) -> Void in
+                    println(o)
+                    }, error: { (e) -> Void in
+                        println("getInfo FAILED: " + e.description)
+                    }) { () -> Void in
+                        println("getInfo completed")
+            }
+
         }
         
+//        }.then { () -> RACSignal! in
+//            return signal_getInfo()
+//        }.subscribeNext({ (o) -> Void in
+//            println(o)
+//        }, error: { (e) -> Void in
+//            println("getInfo FAILED: " + e.description)
+//        }) { () -> Void in
+//            println("getInfo completed")
+//        }
+    
         
     }
     
     @IBAction func tap_blogsIFollow(sender: UIButton) {
         signal_blogsIAmFollowing().flattenMap { (o) -> RACStream! in
-            let r = o as NSDictionary!
-//            for blog in r["blogs"] as NSArray{
-//                let blogInfo = r
-//            }
-            let firstBlogName = (r.valueForKey("blogs")[0] as NSDictionary).valueForKey("name") as String
-            return signal_getPostsOfBlog(firstBlogName + ".tumblr.com")
+            let json = JSONValue(o)
+            if let firstBlogName = json["blogs"][0]["name2"].string{
+                return signal_getPostsOfBlog(firstBlogName + ".tumblr.com")
+            }
+            return nil
         }.subscribeNext({ (o) -> Void in
             println(o)
             }, error: { (e) -> Void in
