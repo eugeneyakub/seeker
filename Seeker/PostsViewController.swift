@@ -108,7 +108,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         
         let post = posts[indexPath.item]
-        if post.type == "photo"{
+        if post.type.toRaw() == "photo"{
             var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_photoPost", forIndexPath: indexPath) as PostCollectionViewCell
             if post.photo != nil{
                 cell.postPhoto.setImageWithURL(NSURL(string:post.photo!.url), placeholderImage: UIImage(named: "photo_placeholder"))

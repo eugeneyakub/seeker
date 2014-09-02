@@ -112,6 +112,24 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		4453E39619B5DF6B001A2A61 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4498843419B0684000C288DE /* PostCollectionViewCell.swift */,
+				4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		4453E39719B5DF7D001A2A61 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */,
+				440F136719B05A2F00ABAE03 /* Core_Execution.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		44A39C6919AB20BD00A59A7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,19 +164,17 @@
 		44CE3A3419A7251E001E7EAA /* Seeker */ = {
 			isa = PBXGroup;
 			children = (
+				44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */,
+				440F136519B0585300ABAE03 /* PostsViewController.swift */,
+				4404385419B5B9A100351E95 /* protocol_postCell.swift */,
+				4453E39719B5DF7D001A2A61 /* Core */,
+				4453E39619B5DF6B001A2A61 /* Cells */,
 				44D28B7319ADB55A005F1946 /* old */,
 				44CE3A3719A7251E001E7EAA /* AppDelegate.swift */,
 				44CE3A3B19A7251E001E7EAA /* Main.storyboard */,
 				44CE3A3E19A7251E001E7EAA /* Images.xcassets */,
 				44CE3A3519A7251E001E7EAA /* Supporting Files */,
 				44CE3A5419A72677001E7EAA /* Seeker-Bridging-Header.h */,
-				44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */,
-				44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */,
-				440F136719B05A2F00ABAE03 /* Core_Execution.swift */,
-				440F136519B0585300ABAE03 /* PostsViewController.swift */,
-				4498843419B0684000C288DE /* PostCollectionViewCell.swift */,
-				4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */,
-				4404385419B5B9A100351E95 /* protocol_postCell.swift */,
 			);
 			path = Seeker;
 			sourceTree = "<group>";
@@ -203,9 +219,9 @@
 		44D28B7319ADB55A005F1946 /* old */ = {
 			isa = PBXGroup;
 			children = (
+				44A39C6C19AB240000A59A7E /* seekerCell.swift */,
 				44CE3A5719A72705001E7EAA /* SeekerViewController.swift */,
 				44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */,
-				44A39C6C19AB240000A59A7E /* seekerCell.swift */,
 				44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */,
 			);
 			name = old;

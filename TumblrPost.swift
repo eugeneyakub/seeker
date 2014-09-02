@@ -21,6 +21,18 @@ extension NSDate
     }
 }
 
+enum enum_PostType:String{
+    case Text = "text"
+    case Quote = "quote"
+    case Link = "link"
+    case Answer = "answer"
+    case Video = "video"
+    case Audio = "audio"
+    case Photo = "photo"
+    case Chat  = "chat"
+    case Unhandled = "unhandled"
+}
+
 struct Photo{
     var width:Int?
     var height:Int?
@@ -38,10 +50,10 @@ class TumblrPost{
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
         self.photo      = photo
-        self.type       = type
+        self.type       = enum_PostType.fromRaw(type) != nil ? enum_PostType.fromRaw(type)! : enum_PostType.Unhandled
         self.blog_name  = blog_name
         self.body       = body
-        if self.body != nil{
+        if self.body    != nil{
             println(self.body!)
         }
     }
@@ -50,7 +62,7 @@ class TumblrPost{
     var date:NSDate!
     var photo:Photo?
     var body:String?
-    var type:String!
+    var type:enum_PostType!
     var blog_name:String!
     
 }
