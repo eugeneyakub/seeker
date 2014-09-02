@@ -27,23 +27,29 @@ struct Photo{
     var url:String?
 }
 
+//text, quote, link, answer, video, audio, photo, chat
 class TumblrPost{
     init(){
         
     }
     
-    init(postUrl post_url:String?, post_date:String?, photo:Photo?, type:String!, blog_name:String!) {
+    init(postUrl post_url:String?, post_date:String?, photo:Photo?, type:String!, blog_name:String!, body:String?) {
         
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
         self.photo      = photo
         self.type       = type
         self.blog_name  = blog_name
+        self.body       = body
+        if self.body != nil{
+            println(self.body!)
+        }
     }
     
     var post_url:String!
     var date:NSDate!
     var photo:Photo?
+    var body:String?
     var type:String!
     var blog_name:String!
     

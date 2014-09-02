@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4404385319B5B72D00351E95 /* TextPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */; };
+		4404385519B5B9A100351E95 /* protocol_postCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404385419B5B9A100351E95 /* protocol_postCell.swift */; };
 		440F136219B053FC00ABAE03 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136119B053FC00ABAE03 /* SwiftyJSON.swift */; };
 		440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136519B0585300ABAE03 /* PostsViewController.swift */; };
 		440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136719B05A2F00ABAE03 /* Core_Execution.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		015644BED5EA4412A903BBC4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		1ACAD61EEF9644D98DC2B1DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		4404385419B5B9A100351E95 /* protocol_postCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocol_postCell.swift; sourceTree = "<group>"; };
 		440F136119B053FC00ABAE03 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		440F136519B0585300ABAE03 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		440F136719B05A2F00ABAE03 /* Core_Execution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_Execution.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				440F136719B05A2F00ABAE03 /* Core_Execution.swift */,
 				440F136519B0585300ABAE03 /* PostsViewController.swift */,
 				4498843419B0684000C288DE /* PostCollectionViewCell.swift */,
+				4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */,
+				4404385419B5B9A100351E95 /* protocol_postCell.swift */,
 			);
 			path = Seeker;
 			sourceTree = "<group>";
@@ -352,9 +358,11 @@
 				44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */,
 				440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */,
 				44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */,
+				4404385319B5B72D00351E95 /* TextPostCollectionViewCell.swift in Sources */,
 				440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */,
 				44CE3A6219A76288001E7EAA /* Future.swift in Sources */,
 				44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */,
+				4404385519B5B9A100351E95 /* protocol_postCell.swift in Sources */,
 				44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */,
 				44CE3A6319A76288001E7EAA /* Promise.swift in Sources */,
 			);

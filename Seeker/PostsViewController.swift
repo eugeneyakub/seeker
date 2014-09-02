@@ -29,11 +29,15 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     }
     
+    func json_pathToPosts() -> String{
+        return (type == "LikedPosts") ? "liked_posts": "posts"
+    }
+    
     func getPosts(){
         execution_getPosts(byType: type, atPage: page).subscribeNext({[weak self]  (o) -> Void in
             if let actualSelf = self{
                 let json = JSONValue(o)
-                if let liked_posts = json["liked_posts"].array{
+                if let liked_posts = json[actualSelf.json_pathToPosts()].array{
                     println(liked_posts)
                     for post in liked_posts{
                         let width           = post["photos"][0]["original_size"]["width"].integer
@@ -45,8 +49,9 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         if width != nil && height != nil && url != nil{
                             photo = Photo(width: width!, height: height!, url: url!)
                         }
+                        let body            = post["body"].string
                         
-                        let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photo: photo, type:type, blog_name: blog_name )
+                        let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photo: photo, type:type, blog_name: blog_name, body: body )
                         actualSelf.posts.append(tp)
                         
                     }
@@ -101,14 +106,28 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("postCell", forIndexPath: indexPath) as PostCollectionViewCell
+        
         let post = posts[indexPath.item]
-        cell.blogName.text = post.blog_name
-        if post.photo != nil{
-            cell.postPhoto.setImageWithURL(NSURL(string:post.photo!.url), placeholderImage: UIImage(named: "photo_placeholder"))
+        if post.type == "photo"{
+            var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_photoPost", forIndexPath: indexPath) as PostCollectionViewCell
+            if post.photo != nil{
+                cell.postPhoto.setImageWithURL(NSURL(string:post.photo!.url), placeholderImage: UIImage(named: "photo_placeholder"))
+            }
+            cell.blogName.text = post.blog_name
+            return cell
+        } else {
+            var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_textPost", forIndexPath: indexPath) as TextPostCollectionViewCell
+            if post.body != nil{
+                cell.bodyPost.text = post.body!
+            }
+            cell.blogName.text = post.blog_name
+            return cell
         }
-        println(posts.count)
-        return cell
+        
+        
+ 
+        //println(posts.count)
+       // return cell
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {

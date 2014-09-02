@@ -108,9 +108,9 @@ func signal_blogInfo(blogName:String)->RACSignal{
 }
 
 
-func signal_getPostsOfBlog(blogName:String)->RACSignal{
+func signal_getPostsOfBlog(blogName:String, page:Int)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
-        TMAPIClient.sharedInstance().posts(blogName, type: nil, parameters: nil) {(o:AnyObject!, e:NSError!) ->() in
+        TMAPIClient.sharedInstance().posts(blogName, type: nil, parameters: ["limit":20, "offset":(page*20)]) {(o:AnyObject!, e:NSError!) ->() in
             if e{
                 s.sendError(e)
                 return
