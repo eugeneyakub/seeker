@@ -131,6 +131,13 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+        let post = posts[indexPath.item]
+        if post.type.toRaw() == "photo"{
+            let height = CGFloat(post.photo!.height!) * (320.0 / CGFloat(post.photo!.width!) )
+            //println("\(height) \(post.photo!.width!) \(320.0 / post.photo!.width!)")
+            return CGSize(width: 320, height: height)
+        }
+        
         return CGSize(width: 320, height: 200)
     }
 }

@@ -64,5 +64,6 @@ class TumblrPost{
     var body:String?
     var type:enum_PostType!
     var blog_name:String!
+    var source:String?
     
 }
