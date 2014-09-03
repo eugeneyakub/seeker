@@ -17,6 +17,11 @@
 		44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */; };
 		44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */; };
 		44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6C19AB240000A59A7E /* seekerCell.swift */; };
+		44AD1F3719B700F900AFD0B9 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3219B700F900AFD0B9 /* Constraint.swift */; };
+		44AD1F3819B700F900AFD0B9 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */; };
+		44AD1F3919B700F900AFD0B9 /* Insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3419B700F900AFD0B9 /* Insets.swift */; };
+		44AD1F3A19B700F900AFD0B9 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */; };
+		44AD1F3B19B700F900AFD0B9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3619B700F900AFD0B9 /* View.swift */; };
 		44BC08DF19AF1FC7007B2FE1 /* Core_RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */; };
 		44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A3719A7251E001E7EAA /* AppDelegate.swift */; };
 		44CE3A3D19A7251E001E7EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CE3A3B19A7251E001E7EAA /* Main.storyboard */; };
@@ -56,6 +61,11 @@
 		44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekRacViewController.swift; sourceTree = "<group>"; };
 		44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYCityWeather.swift; sourceTree = "<group>"; };
 		44A39C6C19AB240000A59A7E /* seekerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seekerCell.swift; sourceTree = "<group>"; };
+		44AD1F3219B700F900AFD0B9 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		44AD1F3419B700F900AFD0B9 /* Insets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insets.swift; sourceTree = "<group>"; };
+		44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		44AD1F3619B700F900AFD0B9 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_RAC.swift; sourceTree = "<group>"; };
 		44CE3A3219A7251E001E7EAA /* Seeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CE3A3619A7251E001E7EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,9 +149,22 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		44AD1F3119B700E400AFD0B9 /* Snappy */ = {
+			isa = PBXGroup;
+			children = (
+				44AD1F3219B700F900AFD0B9 /* Constraint.swift */,
+				44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */,
+				44AD1F3419B700F900AFD0B9 /* Insets.swift */,
+				44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */,
+				44AD1F3619B700F900AFD0B9 /* View.swift */,
+			);
+			name = Snappy;
+			sourceTree = "<group>";
+		};
 		44CE3A2919A7251E001E7EAA = {
 			isa = PBXGroup;
 			children = (
+				44AD1F3119B700E400AFD0B9 /* Snappy */,
 				440F136019B053E600ABAE03 /* Support */,
 				44CE3A5B19A76270001E7EAA /* Futures */,
 				44CE3A3419A7251E001E7EAA /* Seeker */,
@@ -363,6 +386,7 @@
 			files = (
 				44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */,
 				44CE3A6519A76288001E7EAA /* FutureUtils.swift in Sources */,
+				44AD1F3919B700F900AFD0B9 /* Insets.swift in Sources */,
 				44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */,
 				44BC08DF19AF1FC7007B2FE1 /* Core_RAC.swift in Sources */,
 				44CE3A6419A76288001E7EAA /* Queue.swift in Sources */,
@@ -370,15 +394,19 @@
 				44CE3A5819A72705001E7EAA /* SeekerViewController.swift in Sources */,
 				44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */,
 				4498843519B0684000C288DE /* PostCollectionViewCell.swift in Sources */,
+				44AD1F3719B700F900AFD0B9 /* Constraint.swift in Sources */,
 				4498843319B0608E00C288DE /* TumblrPost.swift in Sources */,
 				44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */,
 				440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */,
 				44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */,
 				4404385319B5B72D00351E95 /* TextPostCollectionViewCell.swift in Sources */,
+				44AD1F3819B700F900AFD0B9 /* ConstraintMaker.swift in Sources */,
 				440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */,
 				44CE3A6219A76288001E7EAA /* Future.swift in Sources */,
 				44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */,
+				44AD1F3A19B700F900AFD0B9 /* LayoutConstraint.swift in Sources */,
 				4404385519B5B9A100351E95 /* protocol_postCell.swift in Sources */,
+				44AD1F3B19B700F900AFD0B9 /* View.swift in Sources */,
 				44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */,
 				44CE3A6319A76288001E7EAA /* Promise.swift in Sources */,
 			);

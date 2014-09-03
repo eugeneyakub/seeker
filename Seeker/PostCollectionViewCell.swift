@@ -10,6 +10,7 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet var containerView: UIView!
     @IBOutlet var blogName: UILabel!
     @IBOutlet var postPhoto: UIImageView!
 }

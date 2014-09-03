@@ -45,11 +45,11 @@ class TumblrPost{
         
     }
     
-    init(postUrl post_url:String?, post_date:String?, photo:Photo?, type:String!, blog_name:String!, body:String?) {
+    init(postUrl post_url:String?, post_date:String?, photos:[Photo], type:String!, blog_name:String!, body:String?) {
         
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
-        self.photo      = photo
+        self.photos     = photos
         self.type       = enum_PostType.fromRaw(type) != nil ? enum_PostType.fromRaw(type)! : enum_PostType.Unhandled
         self.blog_name  = blog_name
         self.body       = body
@@ -60,7 +60,7 @@ class TumblrPost{
     
     var post_url:String!
     var date:NSDate!
-    var photo:Photo?
+    var photos:[Photo]!
     var body:String?
     var type:enum_PostType!
     var blog_name:String!

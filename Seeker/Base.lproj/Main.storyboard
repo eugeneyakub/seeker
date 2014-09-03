@@ -147,24 +147,25 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-m8-NUJ">
-                                                    <rect key="frame" x="0.0" y="43" width="320" height="157"/>
-                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-bY-YoC" userLabel="ImagesContainer">
+                                                    <rect key="frame" x="0.0" y="40" width="320" height="157"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="-5" id="824-bH-84I"/>
                                             <constraint firstItem="EPT-25-9RT" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="6" id="DGq-cD-uKm"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="xW4-m8-NUJ" secondAttribute="trailing" constant="-8" id="XWo-fQ-wc4"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="xW4-m8-NUJ" secondAttribute="bottom" constant="-8" id="a3o-Od-r3t"/>
-                                            <constraint firstItem="xW4-m8-NUJ" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="fZi-Q9-fBc"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
+                                            <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
+                                            <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
                                             <constraint firstItem="EPT-25-9RT" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="h0o-1w-eA4"/>
-                                            <constraint firstItem="xW4-m8-NUJ" firstAttribute="top" secondItem="EPT-25-9RT" secondAttribute="bottom" constant="8" id="o6H-0a-fie"/>
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
                                             <outlet property="blogName" destination="EPT-25-9RT" id="4UD-wx-g3J"/>
-                                            <outlet property="postPhoto" destination="xW4-m8-NUJ" id="TQU-a6-id4"/>
+                                            <outlet property="containerView" destination="asf-bY-YoC" id="oq1-fD-iQV"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_textPost" id="5JX-8V-Ool" customClass="TextPostCollectionViewCell" customModule="Seeker" customModuleProvider="target">
