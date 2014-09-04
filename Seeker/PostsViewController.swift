@@ -40,29 +40,27 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 if let liked_posts = json[actualSelf.json_pathToPosts()].array{
                    // println(liked_posts)
                     
-                    
-                    for post in liked_posts{
+                    actualSelf.posts = map(liked_posts) {(post) -> TumblrPost in
                         var photos_arr:[Photo] = []
                         let type            = post["type"].string!
                         let blog_name       = post["blog_name"].string!
                         if let photos = post["photos"].array{
-                        for ph in photos {
-                            let width           = ph["original_size"]["width"].integer
-                            let height          = ph["original_size"]["height"].integer
-                            let url             = ph["original_size"]["url"].string
-                            
-                            var photo:Photo?
-                            if width != nil && height != nil && url != nil{
-                                photo = Photo(width: width!, height: height!, url: url!)
-                                photos_arr.append(photo!)
+                            for ph in photos {
+                                let width           = ph["original_size"]["width"].integer
+                                let height          = ph["original_size"]["height"].integer
+                                let url             = ph["original_size"]["url"].string
+                                
+                                var photo:Photo?
+                                if width != nil && height != nil && url != nil{
+                                    photo = Photo(width: width!, height: height!, url: url!)
+                                    photos_arr.append(photo!)
+                                }
                             }
-                        }
                         }
                         let body            = post["body"].string
                         
                         let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photos: photos_arr, type:type, blog_name: blog_name, body: body )
-                        actualSelf.posts.append(tp)
-                        
+                        return tp
                     }
                     
                     println(actualSelf)
