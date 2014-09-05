@@ -45,7 +45,7 @@ class TumblrPost{
         
     }
     
-    init(postUrl post_url:String?, post_date:String?, photos:[Photo], type:String!, blog_name:String!, body:String?) {
+    init(postUrl post_url:String?, post_date:String?, photos:[Photo], type:String!, blog_name:String!, body:String?, reblog_key:String, post_id:Int, liked:Bool) {
         
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
@@ -53,11 +53,12 @@ class TumblrPost{
         self.type       = enum_PostType.fromRaw(type) != nil ? enum_PostType.fromRaw(type)! : enum_PostType.Unhandled
         self.blog_name  = blog_name
         self.body       = body
-        if self.body    != nil{
-            println(self.body!)
-        }
+        self.reblog_key = reblog_key
+        self.post_id    = String(post_id)
+        self.liked      = liked
     }
     
+    var reblog_key:String!
     var post_url:String!
     var date:NSDate!
     var photos:[Photo]!
@@ -65,5 +66,7 @@ class TumblrPost{
     var type:enum_PostType!
     var blog_name:String!
     var source:String?
+    var post_id:String!
+    var liked:Bool!
     
 }

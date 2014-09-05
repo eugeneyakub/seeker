@@ -13,6 +13,8 @@ func execution_getPosts(byType type:String, atPage page:Int) -> RACSignal{
         return signal_likedPosts(page)
     } else if type == "PostsOfBlog"{
         return signal_getPostsOfBlog("pain-for-gainz", page)
+    } else if type == "dashboard"{
+        return signal_dashboard(page)
     }
     return RACSignal.empty()
 }

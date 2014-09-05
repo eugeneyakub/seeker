@@ -44,6 +44,9 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         var photos_arr:[Photo] = []
                         let type            = post["type"].string!
                         let blog_name       = post["blog_name"].string!
+                        let reblog_key      = post["reblog_key"].string!
+                        let post_id         = post["id"].integer!
+                        let liked           = post["liked"].bool!
                         if let photos = post["photos"].array{
                             for ph in photos {
                                 let width           = ph["original_size"]["width"].integer
@@ -59,7 +62,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         }
                         let body            = post["body"].string
                         
-                        let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photos: photos_arr, type:type, blog_name: blog_name, body: body )
+                        let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photos: photos_arr, type:type, blog_name: blog_name, body: body, reblog_key: reblog_key, post_id:post_id, liked:liked )
                         return tp
                     }
                     
@@ -154,6 +157,14 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
             }
             cell.blogName.text = post.blog_name
+            cell.reblog_key    = post.reblog_key
+            cell.post_id       = post.post_id
+
+            println(post.liked)
+  
+            
+            cell.liked         = post.liked
+            cell.refresh()
             return cell
         } else {
             var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_textPost", forIndexPath: indexPath) as TextPostCollectionViewCell
@@ -161,6 +172,11 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 cell.bodyPost.text = post.body!
             }
             cell.blogName.text = post.blog_name
+            cell.reblog_key    = post.reblog_key
+            cell.post_id       = post.post_id
+           
+            cell.liked         = post.liked
+            //cell.refresh()
             return cell
         }
         
@@ -208,7 +224,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
             let cl = post.photos.reduce(0, { (sum:CGFloat, p:Photo) -> CGFloat in
                 return ceil(sum + CGFloat(p.height!) * (320.0 / CGFloat(p.width!)))
             })
-            return CGSize(width: 320, height: cl)
+            return CGSize(width: 320, height: cl + 100)
         }
         
         return CGSize(width: 320, height: 200)

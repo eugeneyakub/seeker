@@ -82,6 +82,15 @@
                                     <segue destination="DVl-Jn-5u9" kind="show" identifier="segue_LikedPosts" id="6QD-4Q-YGO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-RS-VtZ">
+                                <rect key="frame" x="256" y="305" width="89" height="34"/>
+                                <state key="normal" title="Dashboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="DVl-Jn-5u9" kind="show" identifier="segue_dashboard" id="Ktc-AZ-LB3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -104,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSr-u9-wv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="-574"/>
+            <point key="canvasLocation" x="627" y="-576"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="WY8-x4-agG">
@@ -148,17 +157,28 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-bY-YoC" userLabel="ImagesContainer">
-                                                    <rect key="frame" x="0.0" y="40" width="320" height="157"/>
+                                                    <rect key="frame" x="0.0" y="40" width="320" height="112"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mH-8r-vG0">
+                                                    <rect key="frame" x="281" y="171" width="25" height="25"/>
+                                                    <state key="normal" image="like">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="likeTap:" destination="TTz-U0-fQ9" eventType="touchUpInside" id="hmg-WW-FUG"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="-5" id="824-bH-84I"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="0mH-8r-vG0" secondAttribute="trailing" constant="6" id="1l4-4W-MnT"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="40" id="824-bH-84I"/>
                                             <constraint firstItem="EPT-25-9RT" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="6" id="DGq-cD-uKm"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="0mH-8r-vG0" secondAttribute="bottom" constant="-4" id="STs-Qa-k2w"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
                                             <constraint firstItem="EPT-25-9RT" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="h0o-1w-eA4"/>
                                         </constraints>
@@ -166,6 +186,7 @@
                                         <connections>
                                             <outlet property="blogName" destination="EPT-25-9RT" id="4UD-wx-g3J"/>
                                             <outlet property="containerView" destination="asf-bY-YoC" id="oq1-fD-iQV"/>
+                                            <outlet property="likeButton" destination="0mH-8r-vG0" id="p3O-ty-CVu"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_textPost" id="5JX-8V-Ool" customClass="TextPostCollectionViewCell" customModule="Seeker" customModuleProvider="target">
@@ -182,19 +203,33 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BmN-yg-4lA">
-                                                    <rect key="frame" x="8" y="36" width="312" height="164"/>
+                                                    <rect key="frame" x="8" y="38" width="312" height="124"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMT-vV-8VH">
+                                                    <rect key="frame" x="279" y="175" width="25" height="25"/>
+                                                    <state key="normal" image="like">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="likeTap:" destination="5JX-8V-Ool" eventType="touchUpInside" id="cWh-6L-7fp"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="AMT-vV-8VH" secondAttribute="bottom" constant="-8" id="MGO-61-sIU"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="AMT-vV-8VH" secondAttribute="trailing" constant="8" id="vmF-wi-Sas"/>
+                                        </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
                                             <outlet property="blogName" destination="6vZ-S3-eNo" id="atI-0I-wK4"/>
                                             <outlet property="bodyPost" destination="BmN-yg-4lA" id="tFu-AJ-fU5"/>
+                                            <outlet property="likeButton" destination="AMT-vV-8VH" id="7f6-pk-YMR"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -217,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MP-jP-uWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1304" y="-452"/>
+            <point key="canvasLocation" x="1298" y="-454"/>
         </scene>
         <!--Seeker View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -387,7 +422,10 @@
             <point key="canvasLocation" x="-282" y="702"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wFE-EH-4Tq"/>
+        <segue reference="Ktc-AZ-LB3"/>
     </inferredMetricsTieBreakers>
 </document>

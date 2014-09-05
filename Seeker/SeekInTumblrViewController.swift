@@ -57,6 +57,8 @@ class SeekInTumblrViewController: UIViewController {
             postsController.type = "LikedPosts"
         } else if segue.identifier == "segue_PostsOfBlog"{
             postsController.type = "PostsOfBlog"
+        } else if segue.identifier == "segue_dashboard"{
+            postsController.type = "dashboard"
         }
     }
     

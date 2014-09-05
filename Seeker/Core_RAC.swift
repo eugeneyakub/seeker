@@ -107,6 +107,22 @@ func signal_blogInfo(blogName:String)->RACSignal{
     return signal
 }
 
+func signal_dashboard(page:Int) -> RACSignal{
+    let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+        TMAPIClient.sharedInstance().dashboard(["limit":20, "offset":(page*20)]){(o:AnyObject!, e:NSError!) ->() in
+            if e{
+                s.sendError(e)
+                return
+            }
+            s.sendNext(o)
+            s.sendCompleted()
+            
+        }
+        return nil
+    }
+    return signal
+}
+
 
 func signal_getPostsOfBlog(blogName:String, page:Int)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
@@ -156,3 +172,36 @@ func signal_followers(blogName:String)->RACSignal{
     }
     return signal
 }
+
+func signal_likePost(post_id:String, reblog_key:String)->RACSignal{
+    let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+        TMAPIClient.sharedInstance().like(post_id, reblogKey: reblog_key){(o:AnyObject!, e:NSError!) ->() in
+            if e{
+                s.sendError(e)
+                return
+            }
+            s.sendNext(o)
+            s.sendCompleted()
+        }
+        
+        return nil
+    }
+    return signal
+}
+
+func signal_unlikePost(post_id:String, reblog_key:String)->RACSignal{
+    let signal = RACSignal.createSignal { (s) -> RACDisposable! in
+        TMAPIClient.sharedInstance().unlike(post_id, reblogKey: reblog_key){(o:AnyObject!, e:NSError!) ->() in
+            if e{
+                s.sendError(e)
+                return
+            }
+            s.sendNext(o)
+            s.sendCompleted()
+        }
+        
+        return nil
+    }
+    return signal
+}
+
