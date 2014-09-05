@@ -10,27 +10,39 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
  
+    @IBAction func reblogTap(sender: UIButton) {
+       
+        signal_reblogPost("ovladetel" + ".tumblr.com", post.reblog_key, post.post_id, "rebloged" ).subscribeNext({ (o) -> Void in
+            //println(o)
+            }, error: { (e) -> Void in
+                println("reblogTap FAILED: " + e.description)
+            }) { () -> Void in
+                println("reblog completed")
+                self.post.liked = true
+                self.refresh()
+        }
+    }
     
     @IBAction func likeTap(sender: UIButton) {
-        if liked == false{
-            signal_likePost(post_id, reblog_key).subscribeNext({ (o) -> Void in
+        if post.liked == false{
+            signal_likePost(post.post_id, post.reblog_key).subscribeNext({ (o) -> Void in
                 //println(o)
                 }, error: { (e) -> Void in
-                    println("getInfo FAILED: " + e.description)
+                    println("likeTap FAILED: " + e.description)
                 }) { () -> Void in
                     println("like completed")
-                    self.liked = true
+                    self.post.liked = true
                     self.refresh()
             }
             
         } else {
-            signal_unlikePost(post_id, reblog_key).subscribeNext({ (o) -> Void in
-                println(o)
+            signal_unlikePost(post.post_id, post.reblog_key).subscribeNext({ (o) -> Void in
+                //println(o)
                 }, error: { (e) -> Void in
-                    //println("getInfo FAILED: " + e.description)
+                    println("unlikePost FAILED: " + e.description)
                 }) { () -> Void in
                     println("unlike completed")
-                    self.liked = false
+                    self.post.liked = false
                     self.refresh()
             }
         }
@@ -39,14 +51,13 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     func refresh()->(){
-        likeButton.imageView.image = liked == true ? UIImage(named: "liked") : UIImage(named:"like")
+        likeButton.imageView.image = post.liked == true ? UIImage(named: "liked") : UIImage(named:"like")
     }
     
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var containerView: UIView!
     @IBOutlet var blogName: UILabel!
     @IBOutlet var postPhoto: UIImageView!
-    var post_id:String!
-    var reblog_key:String!
-    var liked:Bool!
+    var post:TumblrPost!
+
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 class TextPostCollectionViewCell: UICollectionViewCell {
+    @IBAction func reblogTap(sender: UIButton) {
+    }
     @IBAction func likeTap(sender: UIButton) {
         signal_likePost(post_id, reblog_key)
     }

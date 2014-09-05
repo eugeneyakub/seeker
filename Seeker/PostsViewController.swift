@@ -156,14 +156,9 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                     }
                 }
             }
+            cell.post = post
             cell.blogName.text = post.blog_name
-            cell.reblog_key    = post.reblog_key
-            cell.post_id       = post.post_id
 
-            println(post.liked)
-  
-            
-            cell.liked         = post.liked
             cell.refresh()
             return cell
         } else {

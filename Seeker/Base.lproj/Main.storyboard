@@ -169,6 +169,19 @@
                                                         <action selector="likeTap:" destination="TTz-U0-fQ9" eventType="touchUpInside" id="hmg-WW-FUG"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-87-tf6">
+                                                    <rect key="frame" x="245" y="167" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="0Xb-im-dNJ"/>
+                                                        <constraint firstAttribute="height" constant="25" id="5Pe-fE-lqj"/>
+                                                    </constraints>
+                                                    <state key="normal" image="reblog">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="reblogTap:" destination="TTz-U0-fQ9" eventType="touchUpInside" id="Prs-fo-wKZ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -179,8 +192,10 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="0mH-8r-vG0" secondAttribute="bottom" constant="-4" id="STs-Qa-k2w"/>
+                                            <constraint firstItem="Wwj-87-tf6" firstAttribute="bottom" secondItem="TTz-U0-fQ9" secondAttribute="bottomMargin" id="dKR-3y-8jZ"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
                                             <constraint firstItem="EPT-25-9RT" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="h0o-1w-eA4"/>
+                                            <constraint firstItem="0mH-8r-vG0" firstAttribute="leading" secondItem="Wwj-87-tf6" secondAttribute="trailing" constant="11" id="wBC-aZ-qaC"/>
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
@@ -216,6 +231,15 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="likeTap:" destination="5JX-8V-Ool" eventType="touchUpInside" id="cWh-6L-7fp"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaI-OO-Pe2">
+                                                    <rect key="frame" x="243" y="175" width="25" height="25"/>
+                                                    <state key="normal" image="reblog">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="reblogTap:" destination="5JX-8V-Ool" eventType="touchUpInside" id="QQt-10-M1j"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -424,6 +448,7 @@
     </scenes>
     <resources>
         <image name="like" width="25" height="25"/>
+        <image name="reblog" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ktc-AZ-LB3"/>
