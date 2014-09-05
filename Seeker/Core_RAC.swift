@@ -208,8 +208,8 @@ func signal_unlikePost(post_id:String, reblog_key:String)->RACSignal{
 func signal_reblogPost(blog_name:String, reblog_key:String, post_id:String, comment:String)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
    
-      let d = NSDictionary(objects: [reblog_key, post_id, comment], forKeys: ["reblog_key", "id", "comment"])
-        TMAPIClient.sharedInstance().reblogPost(blog_name, parameters: d){(o:AnyObject!, e:NSError!) ->() in
+      
+        TMAPIClient.sharedInstance().reblogPost(blog_name, parameters: ["id":post_id, "reblog_key": reblog_key, "comment":comment]){(o:AnyObject!, e:NSError!) ->() in
             if e{
                 s.sendError(e)
                 return

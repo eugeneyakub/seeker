@@ -21,19 +21,35 @@ class SeekInTumblrViewController: UIViewController {
         } else {
             
             signal_authenticate().doError { (e) -> Void in
-                println("authenticate FAILED: " + e.description)
+                    println("authenticate FAILED: " + e.description)
                 }.doCompleted { () -> Void in
                     println("authenticate completed")
                     NSUserDefaults.standardUserDefaults().setObject(TMAPIClient.sharedInstance().OAuthToken, forKey: "OAuthToken")
                     NSUserDefaults.standardUserDefaults().setObject(TMAPIClient.sharedInstance().OAuthTokenSecret, forKey: "OAuthTokenSecret")
                     NSUserDefaults.standardUserDefaults().synchronize()
-                }.subscribeNext({ (o) -> Void in
-                    println(o)
-                    }, error: { (e) -> Void in
-                        println("getInfo FAILED: " + e.description)
-                    }) { () -> Void in
-                        println("getInfo completed")
+            }.subscribeNext({ (o) -> Void in
+                           // println(o)
+                        }, error: { (e) -> Void in
+                           // println("getInfo FAILED: " + e.description)
+                        }) { () -> Void in
+                            //println("getInfo completed")
             }
+//                .then({ () -> RACSignal! in
+//                    return signal_getInfo()
+//                }).subscribeNext({ (o) -> Void in
+//                    println(o)
+//                    let json = JSONValue(o)
+//                   
+//                    if let blogs = json["user"]["blogs"].array{
+//                        if blogs.count > 0{
+//                            user_blog_name = blogs[0]["name"].string!
+//                        }
+//                    }
+//                    }, error: { (e) -> Void in
+//                        println("getInfo FAILED: " + e.description)
+//                    }) { () -> Void in
+//                        println("getInfo completed")
+//            }
 
         }
         

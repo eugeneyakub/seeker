@@ -11,8 +11,7 @@ import UIKit
 class PostCollectionViewCell: UICollectionViewCell {
  
     @IBAction func reblogTap(sender: UIButton) {
-       
-        signal_reblogPost("ovladetel" + ".tumblr.com", post.reblog_key, post.post_id, "rebloged" ).subscribeNext({ (o) -> Void in
+        signal_reblogPost(gl_user_blog_name + ".tumblr.com", post.reblog_key, post.post_id, "rebloged" ).subscribeNext({ (o) -> Void in
             //println(o)
             }, error: { (e) -> Void in
                 println("reblogTap FAILED: " + e.description)
