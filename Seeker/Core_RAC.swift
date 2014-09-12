@@ -156,8 +156,8 @@ func signal_blogsIAmFollowing() -> RACSignal{
     return signal
 }
 
-
-func signal_followers(blogName:String)->RACSignal{
+//return followers of blog of current user , not work with other blognames
+func signal_followers(blogName:String = gl_user_blog_name)->RACSignal{
     let signal = RACSignal.createSignal { (s) -> RACDisposable! in
         TMAPIClient.sharedInstance().followers(blogName, parameters: nil) {(o:AnyObject!, e:NSError!) ->() in
             if e{

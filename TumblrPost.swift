@@ -68,5 +68,6 @@ class TumblrPost{
     var source:String?
     var post_id:String!
     var liked:Bool!
+    var reblogged:Bool = false
     
 }

@@ -159,6 +159,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
             }
             cell.post = post
+            cell.avatar.setImageWithURL(NSURL(string:"http://api.tumblr.com/v2/blog/\(post.blog_name).tumblr.com/avatar/64"), placeholderImage:  UIImage(named: "photo_placeholder"))
             cell.blogName.setTitle(post.blog_name, forState: UIControlState.Normal)
             cell.blogName.setTitle(post.blog_name, forState: UIControlState.Highlighted)
             cell.blogName.addTarget(self, action: "gotoBlog:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -169,6 +170,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
             if post.body != nil{
                 cell.bodyPost.text = post.body!
             }
+            cell.avatar.setImageWithURL(NSURL(string:"http://api.tumblr.com/v2/blog/\(post.blog_name).tumblr.com/avatar/64"), placeholderImage:  UIImage(named: "photo_placeholder"))
             cell.blogName.setTitle(post.blog_name, forState: UIControlState.Normal)
             cell.blogName.setTitle(post.blog_name, forState: UIControlState.Highlighted)
             cell.blogName.addTarget(self, action: "gotoBlog:", forControlEvents: UIControlEvents.TouchUpInside)

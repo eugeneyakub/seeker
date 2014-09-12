@@ -83,7 +83,7 @@ class SeekInTumblrViewController: UIViewController {
     @IBAction func tap_blogsIFollow(sender: UIButton) {
         signal_blogsIAmFollowing().flattenMap { (o) -> RACStream! in
             let json = JSONValue(o)
-            if let firstBlogName = json["blogs"][0]["name2"].string{
+            if let firstBlogName = json["blogs"][0]["name"].string{
                 return signal_getPostsOfBlog(firstBlogName + ".tumblr.com", 0)
             }
             return nil
@@ -120,9 +120,23 @@ class SeekInTumblrViewController: UIViewController {
 //    }
     
     @IBAction func followers(sender: UIButton) {
-
-
-
+        let signal = gl_user_blog_name == nil ? execution_getUserBlogName() : RACSignal.empty()
+        signal
+//            .then { () -> RACSignal! in
+//            return signal_dashboard(0)
+//            }
+            .then { () -> RACSignal! in
+                return signal_followers()
+            }
+            .subscribeNext({ (o) -> Void in
+                    println(o)
+                    }, error: { (e) -> Void in
+                        println("followers: " + e.description)
+                    }) { () -> Void in
+                        println("followers completed")
+                        
+                        
+        }
     }
     
     

@@ -16,6 +16,7 @@ class TextPostCollectionViewCell: UICollectionViewCell {
     }
 
     @IBOutlet var likeButton: UIButton!
+    @IBOutlet var avatar: UIImageView!
 
     @IBOutlet var blogName: UIButton!
     @IBOutlet var bodyPost: UITextView!

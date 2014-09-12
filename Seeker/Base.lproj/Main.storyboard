@@ -34,8 +34,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ej-cz-iDz">
-                                <rect key="frame" x="277" y="92" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="245" y="92" width="111" height="30"/>
+                                <state key="normal" title="my followers list">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -183,14 +183,23 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQN-n6-yty">
+                                                    <rect key="frame" x="234" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="1B3-iJ-Bze"/>
+                                                        <constraint firstAttribute="height" constant="32" id="kW6-MH-mBx"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="0mH-8r-vG0" secondAttribute="trailing" constant="6" id="1l4-4W-MnT"/>
+                                            <constraint firstItem="SQN-n6-yty" firstAttribute="leading" secondItem="Wqo-c2-McP" secondAttribute="trailing" constant="21" id="47p-8x-3aN"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="40" id="824-bH-84I"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
+                                            <constraint firstItem="SQN-n6-yty" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" id="OAF-0S-hvJ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="0mH-8r-vG0" secondAttribute="bottom" constant="-4" id="STs-Qa-k2w"/>
                                             <constraint firstItem="Wwj-87-tf6" firstAttribute="bottom" secondItem="TTz-U0-fQ9" secondAttribute="bottomMargin" id="dKR-3y-8jZ"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
@@ -200,9 +209,11 @@
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
+                                            <outlet property="avatar" destination="SQN-n6-yty" id="qVq-0q-Txw"/>
                                             <outlet property="blogName" destination="Wqo-c2-McP" id="MhF-Dy-ahO"/>
                                             <outlet property="containerView" destination="asf-bY-YoC" id="oq1-fD-iQV"/>
                                             <outlet property="likeButton" destination="0mH-8r-vG0" id="p3O-ty-CVu"/>
+                                            <outlet property="reblogButton" destination="Wwj-87-tf6" id="YQR-OR-MD2"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell_textPost" id="5JX-8V-Ool" customClass="TextPostCollectionViewCell" customModule="Seeker" customModuleProvider="target">
@@ -244,6 +255,9 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ilj-GD-x6D">
+                                                    <rect key="frame" x="236" y="8" width="32" height="32"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -253,6 +267,7 @@
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
+                                            <outlet property="avatar" destination="Ilj-GD-x6D" id="jfh-qF-xaB"/>
                                             <outlet property="blogName" destination="P1Z-4U-syO" id="OiS-8G-bGK"/>
                                             <outlet property="bodyPost" destination="BmN-yg-4lA" id="tFu-AJ-fU5"/>
                                             <outlet property="likeButton" destination="AMT-vV-8VH" id="7f6-pk-YMR"/>

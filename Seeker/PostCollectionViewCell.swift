@@ -22,7 +22,7 @@ class PostCollectionViewCell: UICollectionViewCell {
                 println("reblogTap FAILED: " + e.description)
             }) { () -> Void in
                 println("reblog completed")
-                self.post.liked = true
+                self.post.reblogged = true
                 self.refresh()
         }
     }
@@ -56,10 +56,13 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     func refresh()->(){
         likeButton.imageView.image = post.liked == true ? UIImage(named: "liked") : UIImage(named:"like")
+        reblogButton.imageView.image = post.reblogged == true ? UIImage(named: "reblogged") : UIImage(named:"reblog")
     }
     
     let storyboard:UIStoryboard!
     @IBOutlet var likeButton: UIButton!
+    @IBOutlet var avatar: UIImageView!
+    @IBOutlet var reblogButton: UIButton!
     @IBOutlet var blogName: UIButton!
     @IBOutlet var gotoBlogButton: UIButton!
     @IBOutlet var containerView: UIView!
