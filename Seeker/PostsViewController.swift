@@ -42,7 +42,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 if let liked_posts = json[actualSelf.json_pathToPosts()].array{
                    // println(liked_posts)
                     
-                    actualSelf.posts = map(liked_posts) {(post) -> TumblrPost in
+                    let assumed_posts = map(liked_posts) {(post) -> TumblrPost in
                         var photos_arr:[Photo] = []
                         let type            = post["type"].string!
                         let blog_name       = post["blog_name"].string!
@@ -67,6 +67,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         let tp = TumblrPost(postUrl: post["post_url"].string, post_date: post["date"].string, photos: photos_arr, type:type, blog_name: blog_name, body: body, reblog_key: reblog_key, post_id:post_id, liked:liked )
                         return tp
                     }
+                    actualSelf.posts += assumed_posts
                     
                     println(actualSelf)
                     actualSelf.collectionView.reloadData()
