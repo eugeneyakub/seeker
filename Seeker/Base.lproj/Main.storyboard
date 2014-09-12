@@ -82,7 +82,7 @@
                                     <segue destination="DVl-Jn-5u9" kind="show" identifier="segue_LikedPosts" id="6QD-4Q-YGO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-RS-VtZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-RS-VtZ">
                                 <rect key="frame" x="256" y="305" width="89" height="34"/>
                                 <state key="normal" title="Dashboard">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,7 +100,9 @@
                             <constraint firstItem="Yk3-kG-GZX" firstAttribute="top" secondItem="hgT-ca-kZi" secondAttribute="bottom" constant="8" id="IsJ-Ul-yLe"/>
                             <constraint firstAttribute="centerX" secondItem="hgT-ca-kZi" secondAttribute="centerX" id="N7m-XH-MlS"/>
                             <constraint firstItem="fT9-nk-5gF" firstAttribute="top" secondItem="PBd-wj-uwZ" secondAttribute="bottom" constant="3" id="XAT-Lg-Z09"/>
+                            <constraint firstAttribute="centerX" secondItem="Z7Z-RS-VtZ" secondAttribute="centerX" id="Zt3-ak-w0e"/>
                             <constraint firstAttribute="centerX" secondItem="Yk3-kG-GZX" secondAttribute="centerX" id="aX9-0n-veA"/>
+                            <constraint firstItem="Z7Z-RS-VtZ" firstAttribute="top" secondItem="Yk3-kG-GZX" secondAttribute="bottom" constant="8" id="cFk-tp-kBb"/>
                             <constraint firstItem="1Ej-cz-iDz" firstAttribute="top" secondItem="BhK-cZ-09N" secondAttribute="bottom" constant="28" id="fZX-Zw-izv"/>
                             <constraint firstAttribute="centerX" secondItem="PBd-wj-uwZ" secondAttribute="centerX" id="pFm-nh-KqK"/>
                             <constraint firstItem="hgT-ca-kZi" firstAttribute="top" secondItem="fT9-nk-5gF" secondAttribute="bottom" constant="8" id="y9v-gm-qMO"/>

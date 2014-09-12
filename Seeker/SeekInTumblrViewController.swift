@@ -101,9 +101,9 @@ class SeekInTumblrViewController: UIViewController {
         signal_makePhotoPost("http://cs620425.vk.me/v620425229/11f03/PIBkjjsEvcA.jpg").subscribeNext({ (o) -> Void in
             println(o)
             }, error: { (e) -> Void in
-                println("followers: " + e.description)
+                println("post: " + e.description)
             }) { () -> Void in
-                println("followers completed")
+                println("post completed")
         }
     }
     
@@ -131,9 +131,9 @@ class SeekInTumblrViewController: UIViewController {
             .subscribeNext({ (o) -> Void in
                     println(o)
                     }, error: { (e) -> Void in
-                        println("followers: " + e.description)
+                        println("my followers: " + e.description)
                     }) { () -> Void in
-                        println("followers completed")
+                        println("my followers completed")
                         
                         
         }
