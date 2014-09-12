@@ -16,7 +16,8 @@ class TextPostCollectionViewCell: UICollectionViewCell {
     }
 
     @IBOutlet var likeButton: UIButton!
-    @IBOutlet var blogName: UILabel!
+
+    @IBOutlet var blogName: UIButton!
     @IBOutlet var bodyPost: UITextView!
     var post_id:String!
     var reblog_key:String!

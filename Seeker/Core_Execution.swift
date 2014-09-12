@@ -24,14 +24,14 @@ func execution_getUserBlogName() -> RACSignal{
     }
 }
 
-func execution_getPosts(byType type:String, atPage page:Int) -> RACSignal{
+func execution_getPosts(byType type:String, atPage page:Int, ofBlog blogName:String?) -> RACSignal{
     
     let signal =  gl_user_blog_name == nil ? execution_getUserBlogName() : RACSignal.empty()
     return signal.then { () -> RACSignal! in
         if type == "LikedPosts"{
             return signal_likedPosts(page)
         } else if type == "PostsOfBlog"{
-            return signal_getPostsOfBlog("pain-for-gainz", page)
+            return signal_getPostsOfBlog(blogName!, page)
         } else if type == "dashboard"{
             return signal_dashboard(page)
         }

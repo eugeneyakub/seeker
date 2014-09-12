@@ -118,7 +118,7 @@
         <!--Posts View Controller-->
         <scene sceneID="WY8-x4-agG">
             <objects>
-                <viewController id="DVl-Jn-5u9" customClass="PostsViewController" customModule="Seeker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="identifier_postsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DVl-Jn-5u9" customClass="PostsViewController" customModule="Seeker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIJ-Ef-U3S"/>
                         <viewControllerLayoutGuide type="bottom" id="fkk-pm-Fvu"/>
@@ -147,15 +147,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BlogName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPT-25-9RT">
-                                                    <rect key="frame" x="8" y="14" width="232" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="232" id="BcI-z5-EFq"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-bY-YoC" userLabel="ImagesContainer">
                                                     <rect key="frame" x="0.0" y="40" width="320" height="112"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -182,24 +173,34 @@
                                                         <action selector="reblogTap:" destination="TTz-U0-fQ9" eventType="touchUpInside" id="Prs-fo-wKZ"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqo-c2-McP">
+                                                    <rect key="frame" x="8" y="8" width="205" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="205" id="NNA-g5-oiC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Blog Name">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="0mH-8r-vG0" secondAttribute="trailing" constant="6" id="1l4-4W-MnT"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="40" id="824-bH-84I"/>
-                                            <constraint firstItem="EPT-25-9RT" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="6" id="DGq-cD-uKm"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="0mH-8r-vG0" secondAttribute="bottom" constant="-4" id="STs-Qa-k2w"/>
                                             <constraint firstItem="Wwj-87-tf6" firstAttribute="bottom" secondItem="TTz-U0-fQ9" secondAttribute="bottomMargin" id="dKR-3y-8jZ"/>
                                             <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
-                                            <constraint firstItem="EPT-25-9RT" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="h0o-1w-eA4"/>
+                                            <constraint firstItem="Wqo-c2-McP" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" id="kzd-C7-Mpf"/>
+                                            <constraint firstItem="Wqo-c2-McP" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="vey-JL-ig4"/>
                                             <constraint firstItem="0mH-8r-vG0" firstAttribute="leading" secondItem="Wwj-87-tf6" secondAttribute="trailing" constant="11" id="wBC-aZ-qaC"/>
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
-                                            <outlet property="blogName" destination="EPT-25-9RT" id="4UD-wx-g3J"/>
+                                            <outlet property="blogName" destination="Wqo-c2-McP" id="MhF-Dy-ahO"/>
                                             <outlet property="containerView" destination="asf-bY-YoC" id="oq1-fD-iQV"/>
                                             <outlet property="likeButton" destination="0mH-8r-vG0" id="p3O-ty-CVu"/>
                                         </connections>
@@ -211,12 +212,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BlogName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vZ-S3-eNo">
-                                                    <rect key="frame" x="8" y="14" width="98" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BmN-yg-4lA">
                                                     <rect key="frame" x="8" y="38" width="312" height="124"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,6 +237,13 @@
                                                         <action selector="reblogTap:" destination="5JX-8V-Ool" eventType="touchUpInside" id="QQt-10-M1j"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1Z-4U-syO">
+                                                    <rect key="frame" x="18" y="8" width="205" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Blog Name">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -251,7 +253,7 @@
                                         </constraints>
                                         <size key="customSize" width="320" height="200"/>
                                         <connections>
-                                            <outlet property="blogName" destination="6vZ-S3-eNo" id="atI-0I-wK4"/>
+                                            <outlet property="blogName" destination="P1Z-4U-syO" id="OiS-8G-bGK"/>
                                             <outlet property="bodyPost" destination="BmN-yg-4lA" id="tFu-AJ-fU5"/>
                                             <outlet property="likeButton" destination="AMT-vV-8VH" id="7f6-pk-YMR"/>
                                         </connections>

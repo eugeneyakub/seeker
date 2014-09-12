@@ -69,9 +69,11 @@ class SeekInTumblrViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         let postsController = segue.destinationViewController as PostsViewController
+        postsController.blogName = gl_user_blog_name
         if segue.identifier == "segue_LikedPosts"{
             postsController.type = "LikedPosts"
         } else if segue.identifier == "segue_PostsOfBlog"{
+            postsController.blogName = "male-fitblr"
             postsController.type = "PostsOfBlog"
         } else if segue.identifier == "segue_dashboard"{
             postsController.type = "dashboard"

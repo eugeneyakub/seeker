@@ -10,6 +10,11 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
  
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+
     @IBAction func reblogTap(sender: UIButton) {
         signal_reblogPost(gl_user_blog_name + ".tumblr.com", post.reblog_key, post.post_id, "rebloged" ).subscribeNext({ (o) -> Void in
             //println(o)
@@ -53,9 +58,11 @@ class PostCollectionViewCell: UICollectionViewCell {
         likeButton.imageView.image = post.liked == true ? UIImage(named: "liked") : UIImage(named:"like")
     }
     
+    let storyboard:UIStoryboard!
     @IBOutlet var likeButton: UIButton!
+    @IBOutlet var blogName: UIButton!
+    @IBOutlet var gotoBlogButton: UIButton!
     @IBOutlet var containerView: UIView!
-    @IBOutlet var blogName: UILabel!
     @IBOutlet var postPhoto: UIImageView!
     var post:TumblrPost!
 

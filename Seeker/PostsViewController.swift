@@ -13,6 +13,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var type = "LikedPosts"
     var posts:[TumblrPost] = []
     var page = 0
+    var blogName:String?
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -29,12 +30,13 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     }
     
+
     func json_pathToPosts() -> String{
         return (type == "LikedPosts") ? "liked_posts": "posts"
     }
     
     func getPosts(){
-        execution_getPosts(byType: type, atPage: page).subscribeNext({[weak self]  (o) -> Void in
+        execution_getPosts(byType: type, atPage: page, ofBlog: blogName).subscribeNext({[weak self]  (o) -> Void in
             if let actualSelf = self{
                 let json = JSONValue(o)
                 if let liked_posts = json[actualSelf.json_pathToPosts()].array{
@@ -157,8 +159,9 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
             }
             cell.post = post
-            cell.blogName.text = post.blog_name
-
+            cell.blogName.setTitle(post.blog_name, forState: UIControlState.Normal)
+            cell.blogName.setTitle(post.blog_name, forState: UIControlState.Highlighted)
+            cell.blogName.addTarget(self, action: "gotoBlog:", forControlEvents: UIControlEvents.TouchUpInside)
             cell.refresh()
             return cell
         } else {
@@ -166,7 +169,9 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
             if post.body != nil{
                 cell.bodyPost.text = post.body!
             }
-            cell.blogName.text = post.blog_name
+            cell.blogName.setTitle(post.blog_name, forState: UIControlState.Normal)
+            cell.blogName.setTitle(post.blog_name, forState: UIControlState.Highlighted)
+            cell.blogName.addTarget(self, action: "gotoBlog:", forControlEvents: UIControlEvents.TouchUpInside)
             cell.reblog_key    = post.reblog_key
             cell.post_id       = post.post_id
            
@@ -179,6 +184,14 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
  
         //println(posts.count)
        // return cell
+    }
+    
+    func gotoBlog(sender:UIButton)->(){
+        let postsViewController = storyboard.instantiateViewControllerWithIdentifier("identifier_postsViewController") as PostsViewController
+        
+        postsViewController.blogName = sender.titleForState(UIControlState.Normal)
+        postsViewController.type     = "PostsOfBlog"
+        self.navigationController.pushViewController(postsViewController, animated: true)
     }
     
 //    func mergeImages(images:[Photo]) -> Photo?{
