@@ -145,19 +145,34 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                // cell.postPhoto.hidden = true
 //                cell.postPhoto.setImageWithURL(NSURL(string:post.photos[0].url), placeholderImage: UIImage(named: "photo_placeholder"))
 //                cell.postPhoto.frame = CGRect(x: 0, y: 40, width: 320, height: post.photos[0].height!)
+//                if let p = post.photos {
+//                    let ivs = map(p){(post:Photo)->UIImageView? in
+//                        return nil
+//                    };
+//                }
 
-                if post.photos.count > 0 {
-                    var offset_y:CGFloat = 0.0
-                    for i in 0 ... post.photos.count - 1{
-                        let h = CGFloat(post.photos[i].height!) * (320.0 / CGFloat(post.photos[i].width!))
-                        var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, 320.0, h))
-                        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                        imageView.setImageWithURL(NSURL(string:post.photos[i].url), placeholderImage:  UIImage(named: "photo_placeholder"))
-                        cell.containerView.addSubview(imageView)
-                        offset_y += h
-
-                    }
-                }
+                
+                let r = reduce(post.photos as [Photo], 0.0, {(offset_y:CGFloat, photo:Photo) -> CGFloat in
+                    let h = CGFloat(photo.height!) * (320.0 / CGFloat(photo.width!))
+                    var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, 320.0, h))
+                    imageView.contentMode = UIViewContentMode.ScaleAspectFit
+                    imageView.setImageWithURL(NSURL(string:photo.url), placeholderImage:  UIImage(named: "photo_placeholder"))
+                    cell.containerView.addSubview(imageView)
+                    return offset_y + h
+                })
+            
+//                if post.photos.count > 0 {
+//                    var offset_y:CGFloat = 0.0
+//                    for i in 0 ... post.photos.count - 1{
+//                        let h = CGFloat(post.photos[i].height!) * (320.0 / CGFloat(post.photos[i].width!))
+//                        var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, 320.0, h))
+//                        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+//                        imageView.setImageWithURL(NSURL(string:post.photos[i].url), placeholderImage:  UIImage(named: "photo_placeholder"))
+//                        cell.containerView.addSubview(imageView)
+//                        offset_y += h
+//
+//                    }
+//                }
             }
             cell.post = post
             cell.avatar.setImageWithURL(NSURL(string:"http://api.tumblr.com/v2/blog/\(post.blog_name).tumblr.com/avatar/64"), placeholderImage:  UIImage(named: "photo_placeholder"))
