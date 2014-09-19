@@ -45,7 +45,7 @@ class TumblrPost{
         
     }
     
-    init(postUrl post_url:String?, post_date:String?, photos:[Photo], type:String!, blog_name:String!, body:String?, reblog_key:String, post_id:Int, liked:Bool) {
+    init(postUrl post_url:String?, post_date:String?, photos:[Photo], type:String!, blog_name:String!, body:String?, reblog_key:String, post_id:String, liked:Bool) {
         
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
@@ -54,7 +54,7 @@ class TumblrPost{
         self.blog_name  = blog_name
         self.body       = body
         self.reblog_key = reblog_key
-        self.post_id    = String(post_id)
+        self.post_id    = post_id
         self.liked      = liked
     }
     

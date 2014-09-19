@@ -47,7 +47,8 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                         let type            = post["type"].string!
                         let blog_name       = post["blog_name"].string!
                         let reblog_key      = post["reblog_key"].string!
-                        let post_id         = post["id"].integer!
+                       
+                        let post_id        = post["id"].number!.stringValue
                         let liked           = post["liked"].bool!
                         if let photos = post["photos"].array{
                             for ph in photos {
