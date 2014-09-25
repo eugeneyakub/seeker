@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Hn-4x-9F9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Hn-4x-9F9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -149,7 +149,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asf-bY-YoC" userLabel="ImagesContainer">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="asf-bY-YoC" userLabel="ImagesContainer">
                                                     <rect key="frame" x="0.0" y="40" width="320" height="112"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -198,13 +198,9 @@
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="0mH-8r-vG0" secondAttribute="trailing" constant="6" id="1l4-4W-MnT"/>
                                             <constraint firstItem="SQN-n6-yty" firstAttribute="leading" secondItem="Wqo-c2-McP" secondAttribute="trailing" constant="21" id="47p-8x-3aN"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="asf-bY-YoC" secondAttribute="bottom" constant="40" id="824-bH-84I"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="asf-bY-YoC" secondAttribute="trailing" constant="-8" id="LTI-v4-sNL"/>
-                                            <constraint firstItem="asf-bY-YoC" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" constant="32" id="NAc-LM-77K"/>
                                             <constraint firstItem="SQN-n6-yty" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" id="OAF-0S-hvJ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="0mH-8r-vG0" secondAttribute="bottom" constant="-4" id="STs-Qa-k2w"/>
                                             <constraint firstItem="Wwj-87-tf6" firstAttribute="bottom" secondItem="TTz-U0-fQ9" secondAttribute="bottomMargin" id="dKR-3y-8jZ"/>
-                                            <constraint firstItem="asf-bY-YoC" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" constant="-8" id="dy6-dO-ju6"/>
                                             <constraint firstItem="Wqo-c2-McP" firstAttribute="top" secondItem="TTz-U0-fQ9" secondAttribute="topMargin" id="kzd-C7-Mpf"/>
                                             <constraint firstItem="Wqo-c2-McP" firstAttribute="leading" secondItem="TTz-U0-fQ9" secondAttribute="leadingMargin" id="vey-JL-ig4"/>
                                             <constraint firstItem="0mH-8r-vG0" firstAttribute="leading" secondItem="Wwj-87-tf6" secondAttribute="trailing" constant="11" id="wBC-aZ-qaC"/>

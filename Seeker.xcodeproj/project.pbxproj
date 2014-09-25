@@ -9,31 +9,17 @@
 /* Begin PBXBuildFile section */
 		4404385319B5B72D00351E95 /* TextPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */; };
 		4404385519B5B9A100351E95 /* protocol_postCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404385419B5B9A100351E95 /* protocol_postCell.swift */; };
-		440F136219B053FC00ABAE03 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136119B053FC00ABAE03 /* SwiftyJSON.swift */; };
 		440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136519B0585300ABAE03 /* PostsViewController.swift */; };
 		440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F136719B05A2F00ABAE03 /* Core_Execution.swift */; };
 		4498843319B0608E00C288DE /* TumblrPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498843219B0608E00C288DE /* TumblrPost.swift */; };
 		4498843519B0684000C288DE /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4498843419B0684000C288DE /* PostCollectionViewCell.swift */; };
-		44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */; };
+		44A1789B19D3E28500AFA3AF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A1789A19D3E28500AFA3AF /* SwiftyJSON.swift */; };
 		44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */; };
-		44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A39C6C19AB240000A59A7E /* seekerCell.swift */; };
-		44AD1F3719B700F900AFD0B9 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3219B700F900AFD0B9 /* Constraint.swift */; };
-		44AD1F3819B700F900AFD0B9 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */; };
-		44AD1F3919B700F900AFD0B9 /* Insets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3419B700F900AFD0B9 /* Insets.swift */; };
-		44AD1F3A19B700F900AFD0B9 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */; };
-		44AD1F3B19B700F900AFD0B9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD1F3619B700F900AFD0B9 /* View.swift */; };
 		44BC08DF19AF1FC7007B2FE1 /* Core_RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */; };
 		44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A3719A7251E001E7EAA /* AppDelegate.swift */; };
 		44CE3A3D19A7251E001E7EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CE3A3B19A7251E001E7EAA /* Main.storyboard */; };
 		44CE3A3F19A7251E001E7EAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CE3A3E19A7251E001E7EAA /* Images.xcassets */; };
 		44CE3A4B19A7251E001E7EAA /* SeekerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A4A19A7251E001E7EAA /* SeekerTests.swift */; };
-		44CE3A5819A72705001E7EAA /* SeekerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5719A72705001E7EAA /* SeekerViewController.swift */; };
-		44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */; };
-		44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5C19A76288001E7EAA /* ExecutionContext.swift */; };
-		44CE3A6219A76288001E7EAA /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5D19A76288001E7EAA /* Future.swift */; };
-		44CE3A6319A76288001E7EAA /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5E19A76288001E7EAA /* Promise.swift */; };
-		44CE3A6419A76288001E7EAA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A5F19A76288001E7EAA /* Queue.swift */; };
-		44CE3A6519A76288001E7EAA /* FutureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE3A6019A76288001E7EAA /* FutureUtils.swift */; };
 		44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */; };
 		83633991CCFB495BBF546BE3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACAD61EEF9644D98DC2B1DC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -53,19 +39,12 @@
 		1ACAD61EEF9644D98DC2B1DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4404385219B5B72D00351E95 /* TextPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4404385419B5B9A100351E95 /* protocol_postCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocol_postCell.swift; sourceTree = "<group>"; };
-		440F136119B053FC00ABAE03 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		440F136519B0585300ABAE03 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		440F136719B05A2F00ABAE03 /* Core_Execution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_Execution.swift; sourceTree = "<group>"; };
 		4498843219B0608E00C288DE /* TumblrPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblrPost.swift; sourceTree = "<group>"; };
 		4498843419B0684000C288DE /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
-		44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekRacViewController.swift; sourceTree = "<group>"; };
+		44A1789A19D3E28500AFA3AF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		44A39C6A19AB20DE00A59A7E /* EYCityWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYCityWeather.swift; sourceTree = "<group>"; };
-		44A39C6C19AB240000A59A7E /* seekerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seekerCell.swift; sourceTree = "<group>"; };
-		44AD1F3219B700F900AFD0B9 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
-		44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
-		44AD1F3419B700F900AFD0B9 /* Insets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insets.swift; sourceTree = "<group>"; };
-		44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
-		44AD1F3619B700F900AFD0B9 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		44BC08DE19AF1FC7007B2FE1 /* Core_RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core_RAC.swift; sourceTree = "<group>"; };
 		44CE3A3219A7251E001E7EAA /* Seeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CE3A3619A7251E001E7EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,13 +55,6 @@
 		44CE3A4919A7251E001E7EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44CE3A4A19A7251E001E7EAA /* SeekerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekerTests.swift; sourceTree = "<group>"; };
 		44CE3A5419A72677001E7EAA /* Seeker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seeker-Bridging-Header.h"; sourceTree = "<group>"; };
-		44CE3A5719A72705001E7EAA /* SeekerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekerViewController.swift; sourceTree = "<group>"; };
-		44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EWeatherManager.swift; sourceTree = "<group>"; };
-		44CE3A5C19A76288001E7EAA /* ExecutionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionContext.swift; sourceTree = "<group>"; };
-		44CE3A5D19A76288001E7EAA /* Future.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
-		44CE3A5E19A76288001E7EAA /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
-		44CE3A5F19A76288001E7EAA /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		44CE3A6019A76288001E7EAA /* FutureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureUtils.swift; sourceTree = "<group>"; };
 		44D28B7619ADB595005F1946 /* SeekInTumblrViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekInTumblrViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +88,7 @@
 		440F136019B053E600ABAE03 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				440F136119B053FC00ABAE03 /* SwiftyJSON.swift */,
+				44A1789A19D3E28500AFA3AF /* SwiftyJSON.swift */,
 				44A39C6919AB20BD00A59A7E /* Model */,
 			);
 			name = Support;
@@ -149,24 +121,10 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		44AD1F3119B700E400AFD0B9 /* Snappy */ = {
-			isa = PBXGroup;
-			children = (
-				44AD1F3219B700F900AFD0B9 /* Constraint.swift */,
-				44AD1F3319B700F900AFD0B9 /* ConstraintMaker.swift */,
-				44AD1F3419B700F900AFD0B9 /* Insets.swift */,
-				44AD1F3519B700F900AFD0B9 /* LayoutConstraint.swift */,
-				44AD1F3619B700F900AFD0B9 /* View.swift */,
-			);
-			name = Snappy;
-			sourceTree = "<group>";
-		};
 		44CE3A2919A7251E001E7EAA = {
 			isa = PBXGroup;
 			children = (
-				44AD1F3119B700E400AFD0B9 /* Snappy */,
 				440F136019B053E600ABAE03 /* Support */,
-				44CE3A5B19A76270001E7EAA /* Futures */,
 				44CE3A3419A7251E001E7EAA /* Seeker */,
 				44CE3A4719A7251E001E7EAA /* SeekerTests */,
 				44CE3A3319A7251E001E7EAA /* Products */,
@@ -192,7 +150,6 @@
 				4404385419B5B9A100351E95 /* protocol_postCell.swift */,
 				4453E39719B5DF7D001A2A61 /* Core */,
 				4453E39619B5DF6B001A2A61 /* Cells */,
-				44D28B7319ADB55A005F1946 /* old */,
 				44CE3A3719A7251E001E7EAA /* AppDelegate.swift */,
 				44CE3A3B19A7251E001E7EAA /* Main.storyboard */,
 				44CE3A3E19A7251E001E7EAA /* Images.xcassets */,
@@ -225,29 +182,6 @@
 				44CE3A4919A7251E001E7EAA /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		44CE3A5B19A76270001E7EAA /* Futures */ = {
-			isa = PBXGroup;
-			children = (
-				44CE3A5C19A76288001E7EAA /* ExecutionContext.swift */,
-				44CE3A5D19A76288001E7EAA /* Future.swift */,
-				44CE3A5E19A76288001E7EAA /* Promise.swift */,
-				44CE3A5F19A76288001E7EAA /* Queue.swift */,
-				44CE3A6019A76288001E7EAA /* FutureUtils.swift */,
-			);
-			name = Futures;
-			sourceTree = "<group>";
-		};
-		44D28B7319ADB55A005F1946 /* old */ = {
-			isa = PBXGroup;
-			children = (
-				44A39C6C19AB240000A59A7E /* seekerCell.swift */,
-				44CE3A5719A72705001E7EAA /* SeekerViewController.swift */,
-				44CE3A5919A72D87001E7EAA /* EWeatherManager.swift */,
-				44A33CCB19ACA70C00AD6360 /* SeekRacViewController.swift */,
-			);
-			name = old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,31 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44A39C6D19AB240000A59A7E /* seekerCell.swift in Sources */,
-				44CE3A6519A76288001E7EAA /* FutureUtils.swift in Sources */,
-				44AD1F3919B700F900AFD0B9 /* Insets.swift in Sources */,
 				44CE3A3819A7251E001E7EAA /* AppDelegate.swift in Sources */,
 				44BC08DF19AF1FC7007B2FE1 /* Core_RAC.swift in Sources */,
-				44CE3A6419A76288001E7EAA /* Queue.swift in Sources */,
-				440F136219B053FC00ABAE03 /* SwiftyJSON.swift in Sources */,
-				44CE3A5819A72705001E7EAA /* SeekerViewController.swift in Sources */,
 				44A39C6B19AB20DE00A59A7E /* EYCityWeather.swift in Sources */,
+				44A1789B19D3E28500AFA3AF /* SwiftyJSON.swift in Sources */,
 				4498843519B0684000C288DE /* PostCollectionViewCell.swift in Sources */,
-				44AD1F3719B700F900AFD0B9 /* Constraint.swift in Sources */,
 				4498843319B0608E00C288DE /* TumblrPost.swift in Sources */,
 				44D28B7719ADB595005F1946 /* SeekInTumblrViewController.swift in Sources */,
 				440F136619B0585300ABAE03 /* PostsViewController.swift in Sources */,
-				44CE3A6119A76288001E7EAA /* ExecutionContext.swift in Sources */,
 				4404385319B5B72D00351E95 /* TextPostCollectionViewCell.swift in Sources */,
-				44AD1F3819B700F900AFD0B9 /* ConstraintMaker.swift in Sources */,
 				440F136819B05A2F00ABAE03 /* Core_Execution.swift in Sources */,
-				44CE3A6219A76288001E7EAA /* Future.swift in Sources */,
-				44A33CCC19ACA70C00AD6360 /* SeekRacViewController.swift in Sources */,
-				44AD1F3A19B700F900AFD0B9 /* LayoutConstraint.swift in Sources */,
 				4404385519B5B9A100351E95 /* protocol_postCell.swift in Sources */,
-				44AD1F3B19B700F900AFD0B9 /* View.swift in Sources */,
-				44CE3A5A19A72D87001E7EAA /* EWeatherManager.swift in Sources */,
-				44CE3A6319A76288001E7EAA /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

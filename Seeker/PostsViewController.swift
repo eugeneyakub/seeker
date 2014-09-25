@@ -38,7 +38,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     func getPosts(){
         execution_getPosts(byType: type, atPage: page, ofBlog: blogName).subscribeNext({[weak self]  (o) -> Void in
             if let actualSelf = self{
-                let json = JSONValue(o)
+                let json = JSON(object: o)
                 if let liked_posts = json[actualSelf.json_pathToPosts()].array{
                    // println(liked_posts)
                     
@@ -96,10 +96,10 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         getPosts()
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
     
@@ -132,7 +132,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
         }
     }
     
-    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let post = posts[indexPath.item]
         if post.type.toRaw() == "photo"{
@@ -157,7 +157,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
                     let h = CGFloat(photo.height!) * (320.0 / CGFloat(photo.width!))
                     var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, 320.0, h))
                     imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                    imageView.setImageWithURL(NSURL(string:photo.url), placeholderImage:  UIImage(named: "photo_placeholder"))
+                    imageView.setImageWithURL(NSURL(string:photo.url!), placeholderImage:  UIImage(named: "photo_placeholder"))
                     cell.containerView.addSubview(imageView)
                     return offset_y + h
                 })
@@ -206,11 +206,11 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func gotoBlog(sender:UIButton)->(){
-        let postsViewController = storyboard.instantiateViewControllerWithIdentifier("identifier_postsViewController") as PostsViewController
+        let postsViewController = storyboard!.instantiateViewControllerWithIdentifier("identifier_postsViewController") as PostsViewController
         
         postsViewController.blogName = sender.titleForState(UIControlState.Normal)
         postsViewController.type     = "PostsOfBlog"
-        self.navigationController.pushViewController(postsViewController, animated: true)
+        self.navigationController!.pushViewController(postsViewController, animated: true)
     }
     
 //    func mergeImages(images:[Photo]) -> Photo?{

@@ -13,7 +13,7 @@ import Foundation
 func execution_getUserBlogName() -> RACSignal{
     return signal_getInfo().flattenMap { (o) -> RACStream! in
         println(o)
-        let json = JSONValue(o)
+        let json = JSON(object: o)
         
         if let blogs = json["user"]["blogs"].array{
             if blogs.count > 0{

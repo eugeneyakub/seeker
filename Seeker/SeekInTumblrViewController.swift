@@ -82,7 +82,7 @@ class SeekInTumblrViewController: UIViewController {
     
     @IBAction func tap_blogsIFollow(sender: UIButton) {
         signal_blogsIAmFollowing().flattenMap { (o) -> RACStream! in
-            let json = JSONValue(o)
+            let json = JSON(object: o)
             if let firstBlogName = json["blogs"][0]["name"].string{
                 return signal_getPostsOfBlog(firstBlogName + ".tumblr.com", 0)
             }
