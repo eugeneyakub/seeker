@@ -14,6 +14,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     var posts:[TumblrPost] = []
     var page = 0
     var blogName:String?
+    let device_width = UIScreen.mainScreen().bounds.size.width
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -135,7 +136,7 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let post = posts[indexPath.item]
-        if post.type.toRaw() == "photo"{
+        if post.type.rawValue == "photo"{
             var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_photoPost", forIndexPath: indexPath) as PostCollectionViewCell
             if post.photos.count != 0{
                 for imageView in cell.containerView.subviews{
@@ -154,8 +155,8 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
 
                 
                 let r = reduce(post.photos as [Photo], 0.0, {(offset_y:CGFloat, photo:Photo) -> CGFloat in
-                    let h = CGFloat(photo.height!) * (320.0 / CGFloat(photo.width!))
-                    var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, 320.0, h))
+                    let h = CGFloat(photo.height!) * (self.device_width / CGFloat(photo.width!))
+                    var imageView = UIImageView(frame: CGRectMake(0.0, offset_y, self.device_width, h))
                     imageView.contentMode = UIViewContentMode.ScaleAspectFit
                     imageView.setImageWithURL(NSURL(string:photo.url!), placeholderImage:  UIImage(named: "photo_placeholder"))
                     cell.containerView.addSubview(imageView)
@@ -244,16 +245,20 @@ class PostsViewController: UIViewController, UICollectionViewDataSource, UIColle
 //            return finalImage;
 //        }
 //    }
-    
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
-        let post = posts[indexPath.item]
-        if post.type.toRaw() == "photo"{
-            let cl = post.photos.reduce(0, { (sum:CGFloat, p:Photo) -> CGFloat in
-                return ceil(sum + CGFloat(p.height!) * (320.0 / CGFloat(p.width!)))
-            })
-            return CGSize(width: 320, height: cl + 100)
-        }
-        
-        return CGSize(width: 320, height: 200)
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
     }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let post = posts[indexPath.item]
+        if post.type.rawValue == "photo"{
+            let cl = post.photos.reduce(0, { (sum:CGFloat, p:Photo) -> CGFloat in
+                return ceil(sum + CGFloat(p.height!) * (self.device_width / CGFloat(p.width!)))
+            })
+            println("\(self.device_width) \(self.collectionView.frame.size.width)")
+            return CGSize(width: self.device_width, height: cl + 100)
+        }
+        println("\(self.device_width)")
+        return CGSize(width: self.device_width, height: 200)
+    }
+
 }

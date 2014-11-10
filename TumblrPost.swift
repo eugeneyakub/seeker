@@ -50,7 +50,7 @@ class TumblrPost{
         self.post_url   = (post_url != nil) ? post_url!: "empty_url"
         self.date       = (date != nil) ? NSDate(dateString: post_date!) : NSDate()
         self.photos     = photos
-        self.type       = enum_PostType.fromRaw(type) != nil ? enum_PostType.fromRaw(type)! : enum_PostType.Unhandled
+        self.type       = enum_PostType(rawValue: type) != nil ? enum_PostType(rawValue: type)! : enum_PostType.Unhandled
         self.blog_name  = blog_name
         self.body       = body
         self.reblog_key = reblog_key
